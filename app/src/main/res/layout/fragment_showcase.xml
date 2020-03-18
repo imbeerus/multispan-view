@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:ignore="HardcodedText">
+
+    <!--  TODO: add items like youtube or others  -->
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.lockwood.multispan.roboto.RobotoTwoSpanView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:firstRobotoFont="black"
+            app:firstText="firstText"
+            app:orientation="vertical"
+            app:secondRobotoFont="bold"
+            app:secondText="secondText" />
+
+        <com.lockwood.multispan.roboto.RobotoThreeSpanView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:firstRobotoFont="black"
+            app:firstText="firstText"
+            app:orientation="vertical"
+            app:secondRobotoFont="bold"
+            app:secondText="secondText"
+            app:thirdRobotoFont="light"
+            app:thirdText="thirdText" />
+
+        <com.lockwood.multispan.roboto.RobotoFourSpanView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:firstRobotoFont="black"
+            app:firstText="firstText"
+            app:fourthRobotoFont="thin"
+            app:fourthText="fourthText"
+            app:orientation="vertical"
+            app:secondRobotoFont="bold"
+            app:secondText="secondText"
+            app:thirdRobotoFont="light"
+            app:thirdText="thirdText" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <com.lockwood.multispan.font.FontTwoSpanView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:firstFont="fonts/roboto_black.ttf"
+            app:firstText="firstText"
+            app:orientation="vertical"
+            app:secondFont="fonts/roboto_bold.ttf"
+            app:secondText="secondText" />
+
+        <com.lockwood.multispan.font.FontThreeSpanView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:firstFont="fonts/roboto_black.ttf"
+            app:firstText="firstText"
+            app:orientation="vertical"
+            app:secondFont="fonts/roboto_bold.ttf"
+            app:secondText="secondText"
+            app:thirdFont="fonts/roboto_light.ttf"
+            app:thirdText="thirdText" />
+
+        <com.lockwood.multispan.font.FontFourSpanView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:firstFont="fonts/roboto_black.ttf"
+            app:firstText="firstText"
+            app:fourthFont="fonts/roboto_thin.ttf"
+            app:fourthText="fourthText"
+            app:orientation="vertical"
+            app:secondFont="fonts/roboto_bold.ttf"
+            app:secondText="secondText"
+            app:thirdFont="fonts/roboto_light.ttf"
+            app:thirdText="thirdText" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</FrameLayout>

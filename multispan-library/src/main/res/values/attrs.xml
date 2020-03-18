@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="MultiSpanView">
+        <attr name="orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+
+        <attr name="firstText" format="string" />
+        <attr name="firstTextSize" format="dimension" />
+        <attr name="firstTextColor" format="color" />
+
+        <attr name="secondText" format="string" />
+        <attr name="secondTextSize" format="dimension" />
+        <attr name="secondTextColor" format="color" />
+
+        <attr name="thirdText" format="string" />
+        <attr name="thirdTextSize" format="dimension" />
+        <attr name="thirdTextColor" format="color" />
+
+        <attr name="fourthText" format="string" />
+        <attr name="fourthTextSize" format="dimension" />
+        <attr name="fourthTextColor" format="color" />
+    </declare-styleable>
+
+</resources>
