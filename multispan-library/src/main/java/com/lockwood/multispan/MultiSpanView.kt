@@ -18,6 +18,7 @@ package com.lockwood.multispan
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.util.AttributeSet
@@ -77,36 +78,35 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
             val item = spanItems[position]
             spannableBuilder.applySpanStyle(position, item)
         }
-        setText(spannableBuilder.trimEnd(), BufferType.SPANNABLE)
+        val result = updateResultSpan(SpannableString(spannableBuilder))
+        setText(result, BufferType.SPANNABLE)
     }
 
-    protected fun TypedArray.getStringOrEmpty(
-        index: Int
-    ) = getString(index) ?: EMPTY_STRING
+    protected open fun updateResultSpan(resultSpans: SpannableString): CharSequence =
+        resultSpans
 
-    protected fun TypedArray.getTextSizeOrCurrent(
-        index: Int
-    ) = getDimensionPixelSize(index, textSize.toInt())
+    protected fun TypedArray.getStringOrEmpty(index: Int) =
+        getString(index) ?: EMPTY_STRING
 
-    protected fun TypedArray.getTextColorOrCurrent(
-        index: Int
-    ) = getColor(index, currentTextColor)
+    protected fun TypedArray.getTextSizeOrCurrent(index: Int) =
+        getDimensionPixelSize(index, textSize.toInt())
 
-    protected inline fun textProperty(
-        position: () -> Int
-    ) = SpanTextProperty(position())
+    protected fun TypedArray.getTextColorOrCurrent(index: Int) =
+        getColor(index, currentTextColor)
 
-    protected inline fun textSizeProperty(
-        position: () -> Int
-    ) = SpanSizeProperty(position())
+    protected inline fun textProperty(position: () -> Int) =
+        SpanTextProperty(position())
 
-    protected inline fun textColorProperty(
-        position: () -> Int
-    ) = SpanColorProperty(position())
+    protected inline fun textSizeProperty(position: () -> Int) =
+        SpanSizeProperty(position())
 
-    protected inner class SpanTextProperty(
-        position: Int
-    ) : SpanProperty<String>(position) {
+    protected inline fun textColorProperty(position: () -> Int) =
+        SpanColorProperty(position())
+
+    protected inline fun textSeparatorProperty(position: () -> Int) =
+        SpanSeparatorProperty(position())
+
+    protected inner class SpanTextProperty(position: Int) : SpanProperty<String>(position) {
 
         override fun getValue(thisRef: Any, property: KProperty<*>): String {
             return spanItems[position].text
@@ -116,12 +116,9 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
             spanItems[position].text = value
             updateSpanStyles()
         }
-
     }
 
-    protected inner class SpanSizeProperty(
-        position: Int
-    ) : SpanProperty<Int>(position) {
+    protected inner class SpanSizeProperty(position: Int) : SpanProperty<Int>(position) {
 
         override fun getValue(thisRef: Any, property: KProperty<*>): Int {
             return spanItems[position].textSize
@@ -131,12 +128,9 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
             spanItems[position].textSize = value
             updateSpanStyles()
         }
-
     }
 
-    protected inner class SpanColorProperty(
-        position: Int
-    ) : SpanProperty<Int>(position) {
+    protected inner class SpanColorProperty(position: Int) : SpanProperty<Int>(position) {
 
         override fun getValue(thisRef: Any, property: KProperty<*>): Int {
             return spanItems[position].textColor
@@ -146,12 +140,23 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
             spanItems[position].textColor = value
             updateSpanStyles()
         }
+    }
 
+    protected inner class SpanSeparatorProperty(position: Int) : SpanProperty<String>(position) {
+
+        override fun getValue(thisRef: Any, property: KProperty<*>): String {
+            return spanItems[position].separator
+        }
+
+        override fun setValue(thisRef: Any, property: KProperty<*>, value: String) {
+            spanItems[position].separator = value
+            updateSpanStyles()
+        }
     }
 
     private fun SpannableStringBuilder.applySpanStyle(position: Int, spanItem: SpanItem) {
         val span = spanItem.buildSpan(position)
-        val text = spanItem.text.plus(" ")
+        val text = spanItem.text.plus("${spanItem.separator} ")
         val start = if (orientation == Orientation.VERTICAL) {
             appendln(text)
             length - text.length - 1

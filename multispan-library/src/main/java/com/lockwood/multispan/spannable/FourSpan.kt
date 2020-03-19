@@ -23,6 +23,7 @@ interface FourSpan<T : SpanItem> : ThreeSpan<T> {
     var fourthText: String
     var fourthTextSize: Int
     var fourthTextColor: Int
+    var fourthSeparator: String
 
     companion object {
         const val FOUR_ITEMS_COUNT = 4

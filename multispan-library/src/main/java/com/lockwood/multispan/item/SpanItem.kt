@@ -26,6 +26,8 @@ interface SpanItem {
 
     var textColor: Int
 
+    var separator: String
+
     fun buildSpan(position: Int): CharacterStyle
 
 }

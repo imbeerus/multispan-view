@@ -35,12 +35,14 @@ open class FontTwoSpanView<T : FontSpanItem> @JvmOverloads constructor(
     override var firstText by textProperty { ITEM_FIRST }
     override var firstTextSize by sizeProperty { ITEM_FIRST }
     override var firstTextColor by textColorProperty { ITEM_FIRST }
+    override var firstSeparator by textSeparatorProperty { ITEM_FIRST }
 
     override var firstFont by fontProperty { ITEM_FIRST }
 
     override var secondText by textProperty { ITEM_SECOND }
     override var secondTextSize by sizeProperty { ITEM_SECOND }
     override var secondTextColor by textColorProperty { ITEM_SECOND }
+    override var secondSeparator by textSeparatorProperty { ITEM_SECOND }
 
     override var secondFont by fontProperty { ITEM_SECOND }
 
@@ -49,10 +51,12 @@ open class FontTwoSpanView<T : FontSpanItem> @JvmOverloads constructor(
             firstText = getStringOrEmpty(R.styleable.MultiSpanView_firstText)
             firstTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_firstTextSize)
             firstTextColor = getTextColorOrCurrent(R.styleable.MultiSpanView_firstTextColor)
+            firstSeparator = getStringOrEmpty(R.styleable.MultiSpanView_firstSeparator)
 
             secondText = getStringOrEmpty(R.styleable.MultiSpanView_secondText)
             secondTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_secondTextSize)
             secondTextColor = getTextColorOrCurrent(R.styleable.MultiSpanView_secondTextColor)
+            secondSeparator = getStringOrEmpty(R.styleable.MultiSpanView_secondSeparator)
         }
         fetchAttrs(R.styleable.FontTwoSpanView, context, attrs) {
             firstFont = getFontOrDefault(R.styleable.FontTwoSpanView_firstFont)

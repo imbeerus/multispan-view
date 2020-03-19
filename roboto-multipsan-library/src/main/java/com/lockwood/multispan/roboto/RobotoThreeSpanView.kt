@@ -32,6 +32,7 @@ open class RobotoThreeSpanView @JvmOverloads constructor(
     override var thirdText by textProperty { ITEM_THIRD }
     override var thirdTextSize by sizeProperty { ITEM_THIRD }
     override var thirdTextColor by textColorProperty { ITEM_THIRD }
+    override var thirdSeparator by textSeparatorProperty { ITEM_THIRD }
 
     override var thirdFont by fontProperty { ITEM_THIRD }
     override var thirdStyle by styleProperty { ITEM_THIRD }
@@ -41,6 +42,7 @@ open class RobotoThreeSpanView @JvmOverloads constructor(
             thirdText = getStringOrEmpty(R.styleable.MultiSpanView_thirdText)
             thirdTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_thirdTextSize)
             thirdTextColor = getTextColorOrCurrent(R.styleable.MultiSpanView_thirdTextColor)
+            thirdSeparator = getStringOrEmpty(R.styleable.MultiSpanView_thirdSeparator)
         }
         fetchAttrs(R.styleable.RobotoThreeSpanView, context, attrs) {
             thirdFont = getRobotoFontFamily(R.styleable.RobotoThreeSpanView_thirdRobotoFont)

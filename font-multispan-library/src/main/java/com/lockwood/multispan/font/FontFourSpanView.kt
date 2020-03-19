@@ -33,6 +33,7 @@ open class FontFourSpanView<T : FontSpanItem> @JvmOverloads constructor(
     override var fourthText by textProperty { ITEM_FOURTH }
     override var fourthTextSize by sizeProperty { ITEM_FOURTH }
     override var fourthTextColor by textColorProperty { ITEM_FOURTH }
+    override var fourthSeparator by textSeparatorProperty { ITEM_FOURTH }
 
     override var fourthFont by fontProperty { ITEM_FOURTH }
 
@@ -41,6 +42,7 @@ open class FontFourSpanView<T : FontSpanItem> @JvmOverloads constructor(
             fourthText = getStringOrEmpty(R.styleable.MultiSpanView_fourthText)
             fourthTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_fourthTextSize)
             fourthTextColor = getTextColorOrCurrent(R.styleable.MultiSpanView_fourthTextColor)
+            fourthSeparator = getStringOrEmpty(R.styleable.MultiSpanView_fourthSeparator)
         }
         fetchAttrs(R.styleable.FontFourSpanView, context, attrs) {
             fourthFont = getFontOrDefault(R.styleable.FontFourSpanView_fourthFont)

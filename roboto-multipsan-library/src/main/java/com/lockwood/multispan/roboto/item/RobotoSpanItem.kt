@@ -28,6 +28,7 @@ class RobotoSpanItem(
     override var text: String = "",
     override var textSize: Int,
     @ColorInt override var textColor: Int,
+    override var separator: String = "",
     var fontFamily: String = DEF_ROBOTO_FONT_FAMILY,
     var style: Int = DEF_TEXT_STYLE
 ) : SpanItem {

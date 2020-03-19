@@ -26,6 +26,7 @@ open class FontSpanItem(
     override var text: String = "",
     override var textSize: Int,
     @ColorInt override var textColor: Int,
+    override var separator: String = "",
     var font: Typeface
 ) : SpanItem {
 

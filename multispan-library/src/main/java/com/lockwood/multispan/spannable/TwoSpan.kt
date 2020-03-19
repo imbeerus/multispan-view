@@ -23,10 +23,12 @@ interface TwoSpan<T : SpanItem> : Spannable<T> {
     var firstText: String
     var firstTextSize: Int
     var firstTextColor: Int
+    var firstSeparator: String
 
     var secondText: String
     var secondTextSize: Int
     var secondTextColor: Int
+    var secondSeparator: String
 
     companion object {
         const val TWO_ITEMS_COUNT = 2
