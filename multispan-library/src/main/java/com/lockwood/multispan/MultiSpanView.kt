@@ -82,7 +82,7 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
             val item = spanItems[position]
             spannableBuilder.applySpanStyle(position, item)
         }
-        val result = updateResultSpan(SpannableString(spannableBuilder))
+        val result = updateResultSpan(SpannableString(spannableBuilder.trimEnd()))
         setText(result, BufferType.SPANNABLE)
     }
 
