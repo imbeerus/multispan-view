@@ -30,7 +30,7 @@ open class RobotoThreeSpanView @JvmOverloads constructor(
     override var spansCount = THREE_ITEMS_COUNT
 
     override var thirdText by textProperty { ITEM_THIRD }
-    override var thirdTextSize by sizeProperty { ITEM_THIRD }
+    override var thirdTextSize by textSizeProperty { ITEM_THIRD }
     override var thirdTextColor by textColorProperty { ITEM_THIRD }
     override var thirdSeparator by textSeparatorProperty { ITEM_THIRD }
 

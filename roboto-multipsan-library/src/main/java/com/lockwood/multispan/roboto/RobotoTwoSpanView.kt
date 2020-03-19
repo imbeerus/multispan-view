@@ -32,7 +32,7 @@ open class RobotoTwoSpanView @JvmOverloads constructor(
     override var spansCount = TWO_ITEMS_COUNT
 
     override var firstText by textProperty { ITEM_FIRST }
-    override var firstTextSize by sizeProperty { ITEM_FIRST }
+    override var firstTextSize by textSizeProperty { ITEM_FIRST }
     override var firstTextColor by textColorProperty { ITEM_FIRST }
     override var firstSeparator by textSeparatorProperty { ITEM_FIRST }
 
@@ -40,7 +40,7 @@ open class RobotoTwoSpanView @JvmOverloads constructor(
     override var firstStyle by styleProperty { ITEM_FIRST }
 
     override var secondText by textProperty { ITEM_SECOND }
-    override var secondTextSize by sizeProperty { ITEM_SECOND }
+    override var secondTextSize by textSizeProperty { ITEM_SECOND }
     override var secondTextColor by textColorProperty { ITEM_SECOND }
     override var secondSeparator by textSeparatorProperty { ITEM_SECOND }
 

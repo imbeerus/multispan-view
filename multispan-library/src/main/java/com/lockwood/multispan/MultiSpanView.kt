@@ -36,10 +36,10 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
 ) : CompoundTextView(context, attrs, defStyleAttr), Spannable<T> {
 
     var orientation = DEF_ORIENTATION
-    set(value) {
-        field = value
-        updateSpanStyles()
-    }
+        set(value) {
+            field = value
+            updateSpanStyles()
+        }
 
     protected open val spansCount = DEF_SPANS_COUNT
 

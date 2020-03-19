@@ -31,7 +31,7 @@ open class FontFourSpanView<T : FontSpanItem> @JvmOverloads constructor(
     override var spansCount = FOUR_ITEMS_COUNT
 
     override var fourthText by textProperty { ITEM_FOURTH }
-    override var fourthTextSize by sizeProperty { ITEM_FOURTH }
+    override var fourthTextSize by textSizeProperty { ITEM_FOURTH }
     override var fourthTextColor by textColorProperty { ITEM_FOURTH }
     override var fourthSeparator by textSeparatorProperty { ITEM_FOURTH }
 
