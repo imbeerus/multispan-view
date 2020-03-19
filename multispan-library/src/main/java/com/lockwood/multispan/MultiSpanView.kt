@@ -34,9 +34,13 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
     defStyleAttr: Int = android.R.attr.textViewStyle
 ) : CompoundTextView(context, attrs, defStyleAttr), Spannable<T> {
 
-    protected open var spansCount = DEF_SPANS_COUNT
+    var orientation = DEF_ORIENTATION
+    set(value) {
+        field = value
+        updateSpanStyles()
+    }
 
-    protected var orientation = DEF_ORIENTATION
+    protected open var spansCount = DEF_SPANS_COUNT
 
     protected var spanItems = Array(MAX_SPANS_COUNT) { initSpan() }
 
