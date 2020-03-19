@@ -18,6 +18,7 @@ package com.lockwood.multispan
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.Color
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -40,7 +41,9 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
         updateSpanStyles()
     }
 
-    protected open var spansCount = DEF_SPANS_COUNT
+    protected open val spansCount = DEF_SPANS_COUNT
+
+    protected open val defaultTextColor = Color.BLACK
 
     protected var spanItems = Array(MAX_SPANS_COUNT) { initSpan() }
 
@@ -95,8 +98,8 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
     protected fun TypedArray.getTextSizeOrCurrent(index: Int) =
         getDimensionPixelSize(index, textSize.toInt())
 
-    protected fun TypedArray.getTextColorOrCurrent(index: Int) =
-        getColor(index, currentTextColor)
+    protected fun TypedArray.getTextColorOrDefault(index: Int) =
+        getColor(index, defaultTextColor)
 
     protected inline fun textProperty(position: () -> Int) =
         SpanTextProperty(position())

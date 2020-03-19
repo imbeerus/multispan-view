@@ -41,7 +41,7 @@ open class FontFourSpanView<T : FontSpanItem> @JvmOverloads constructor(
         fetchAttrs(R.styleable.MultiSpanView, context, attrs) {
             fourthText = getStringOrEmpty(R.styleable.MultiSpanView_fourthText)
             fourthTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_fourthTextSize)
-            fourthTextColor = getTextColorOrCurrent(R.styleable.MultiSpanView_fourthTextColor)
+            fourthTextColor = getTextColorOrDefault(R.styleable.MultiSpanView_fourthTextColor)
             fourthSeparator = getStringOrEmpty(R.styleable.MultiSpanView_fourthSeparator)
         }
         fetchAttrs(R.styleable.FontFourSpanView, context, attrs) {

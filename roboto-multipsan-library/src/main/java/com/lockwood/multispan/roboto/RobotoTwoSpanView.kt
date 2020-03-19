@@ -51,12 +51,12 @@ open class RobotoTwoSpanView @JvmOverloads constructor(
         fetchAttrs(R.styleable.MultiSpanView, context, attrs) {
             firstText = getStringOrEmpty(R.styleable.MultiSpanView_firstText)
             firstTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_firstTextSize)
-            firstTextColor = getTextColorOrCurrent(R.styleable.MultiSpanView_firstTextColor)
+            firstTextColor = getTextColorOrDefault(R.styleable.MultiSpanView_firstTextColor)
             firstSeparator = getStringOrEmpty(R.styleable.MultiSpanView_firstSeparator)
 
             secondText = getStringOrEmpty(R.styleable.MultiSpanView_secondText)
             secondTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_secondTextSize)
-            secondTextColor = getTextColorOrCurrent(R.styleable.MultiSpanView_secondTextColor)
+            secondTextColor = getTextColorOrDefault(R.styleable.MultiSpanView_secondTextColor)
             secondSeparator = getStringOrEmpty(R.styleable.MultiSpanView_secondSeparator)
         }
         fetchAttrs(R.styleable.RobotoTwoSpanView, context, attrs) {

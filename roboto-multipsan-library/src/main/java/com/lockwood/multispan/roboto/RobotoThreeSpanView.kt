@@ -41,7 +41,7 @@ open class RobotoThreeSpanView @JvmOverloads constructor(
         fetchAttrs(R.styleable.MultiSpanView, context, attrs) {
             thirdText = getStringOrEmpty(R.styleable.MultiSpanView_thirdText)
             thirdTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_thirdTextSize)
-            thirdTextColor = getTextColorOrCurrent(R.styleable.MultiSpanView_thirdTextColor)
+            thirdTextColor = getTextColorOrDefault(R.styleable.MultiSpanView_thirdTextColor)
             thirdSeparator = getStringOrEmpty(R.styleable.MultiSpanView_thirdSeparator)
         }
         fetchAttrs(R.styleable.RobotoThreeSpanView, context, attrs) {

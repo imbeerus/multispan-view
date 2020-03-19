@@ -31,6 +31,7 @@
                     app:firstSeparator=":"
                     app:firstRobotoFont="black"
                     app:firstText="firstText"
+                    app:firstTextSize="32sp"
                     app:orientation="vertical"
                     app:secondRobotoFont="bold"
                     app:secondText="secondText" />
