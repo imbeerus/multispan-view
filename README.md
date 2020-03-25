@@ -4,7 +4,6 @@
 [![](https://img.shields.io/badge/docs-dokka-blue.svg?logo=kotlin)]()
 ![Android CI](https://github.com/lndmflngs/multispan-view/workflows/Android%20CI/badge.svg?branch=master)
 [![](https://jitpack.io/v/lndmflngs/multispan-view.svg)](https://jitpack.io/#lndmflngs/multispan-view)
-[![](https://img.shields.io/badge/apk-demo-blueviolet?logo=android)][1]
 
 Replace your ConstraintLayout with TextView and power of Spans 💪
 
