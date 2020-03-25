@@ -1,7 +1,23 @@
 # multispan-view
 [![API](https://img.shields.io/badge/API-15%2B-orange.svg)](https://android-arsenal.com/api?level=15)
 [![License](https://img.shields.io/badge/license-Apache%202-red.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![](https://img.shields.io/badge/docs-dokka-blue.svg?logo=kotlin)]()
+![Android CI](https://github.com/lndmflngs/multispan-view/workflows/Android%20CI/badge.svg?branch=master)
 [![](https://jitpack.io/v/lndmflngs/multispan-view.svg)](https://jitpack.io/#lndmflngs/multispan-view)
+[![](https://img.shields.io/badge/apk-demo-blueviolet?logo=android)][1]
+
+Replace your ConstraintLayout with TextView and power of Spans 💪
+
+Allow to apply custom Spans and [change gravity of Drawable][2] in TextView
+
+### Features
+* Optimized way to use text styling and drawables with TextView
+* Change style of spans in your way
+* Change gravity of compound drawables
+* RobotoSpanView if you need 
+* Drawable transformations (resize, tint)
+* CompoundViewClickListener
+* Right-to-left Support
 
 ## Issue Tracking
 Found a bug? Have an idea for an improvement? Feel free to [add an issue](../../issues)
@@ -20,3 +36,5 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+[1]: https://github.com/lndmflngs/multispan-view/releases/latest
+[2]: https://github.com/lndmflngs/compound-text-view
