@@ -12,7 +12,7 @@ Allow to apply custom Spans and [change gravity of Drawable][2]
 
 ### Features
 * Optimized way to use text styling and drawables with TextView
-* RobotoSpanView or if you need custom fonts FontSpanView
+* `RobotoSpanView` with prepared Roboto font styles or `FontSpanView` if you need custom fonts 
 * Change style of spans in your way (by [Spannable][3] or [setSpanOnResult][4])
 * Right-to-left Support
 
@@ -32,6 +32,8 @@ dependencies {
         implementation 'com.github.lndmflngs:multispan-view:1.0.0'
 }
 ```
+## Usage
+For more information see `app` directory
 
 ## Issue Tracking
 Found a bug? Have an idea for an improvement? Feel free to [add an issue](../../issues)
@@ -53,4 +55,4 @@ limitations under the License.
 [1]: https://github.com/lndmflngs/multispan-view/releases/latest
 [2]: https://github.com/lndmflngs/compound-text-view
 [3]: https://github.com/lndmflngs/multispan-view/blob/master/multispan-library/src/main/java/com/lockwood/multispan/spannable/Spannable.kt
-[4]: https://github.com/lndmflngs/multispan-view/blob/161dc0db5c8c5a327d5ca9312e575c18a8385502/multispan-library/src/main/java/com/lockwood/multispan/MultiSpanView.kt#L97-98
+[4]: https://github.com/lndmflngs/multispan-view/blob/161dc0db5c8c5a327d5ca9312e575c18a8385502/multispan-library/src/main/java/com/lockwood/multispan/MultiSpanView.kt#L97-L98
