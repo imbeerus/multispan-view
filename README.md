@@ -19,6 +19,23 @@ Allow to apply custom Spans and [change gravity of Drawable][2]
 * CompoundViewClickListener
 * Right-to-left Support
 
+## Download
+Download the [latest release][1] or grab via Gradle:
+
+```
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+```
+dependencies {
+        implementation 'com.github.lndmflngs:multispan-view:1.0.0'
+}
+```
+
 ## Issue Tracking
 Found a bug? Have an idea for an improvement? Feel free to [add an issue](../../issues)
 
