@@ -35,6 +35,8 @@ dependencies {
 ## Usage
 For more information see `app` directory
 
+If you want to set height between lines of text you can use [lineSpacingExtra][5] or [lineSpacingExtra][6]
+
 ## Issue Tracking
 Found a bug? Have an idea for an improvement? Feel free to [add an issue](../../issues)
 
@@ -56,3 +58,5 @@ limitations under the License.
 [2]: https://github.com/lndmflngs/compound-text-view
 [3]: https://github.com/lndmflngs/multispan-view/blob/master/multispan-library/src/main/java/com/lockwood/multispan/spannable/Spannable.kt
 [4]: https://github.com/lndmflngs/multispan-view/blob/161dc0db5c8c5a327d5ca9312e575c18a8385502/multispan-library/src/main/java/com/lockwood/multispan/MultiSpanView.kt#L97-L98
+[5]: https://developer.android.com/reference/android/widget/TextView#attr_android:lineSpacingExtra
+[6]: https://developer.android.com/reference/android/widget/TextView#attr_android:lineSpacingMultiplier
