@@ -8,7 +8,7 @@
 
 Replace your ConstraintLayout with TextView and power of Spans 💪
 
-Allow to apply custom Spans and [change gravity of Drawable][2] in TextView
+Allow to apply custom Spans and [change gravity of Drawable][2]
 
 ### Features
 * Optimized way to use text styling and drawables with TextView
