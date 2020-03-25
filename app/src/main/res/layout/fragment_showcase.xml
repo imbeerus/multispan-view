@@ -13,202 +13,43 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <com.lockwood.multispan.roboto.RobotoTwoSpanView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="16dp"
+            app:firstRobotoFont="black"
+            app:firstSeparator=":"
+            app:firstText="firstText"
+            app:orientation="vertical"
+            app:secondRobotoFont="bold"
+            app:secondText="secondText" />
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:orientation="vertical">
-
-                <com.lockwood.multispan.roboto.RobotoTwoSpanView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:firstSeparator=":"
-                    app:firstRobotoFont="black"
-                    app:firstText="firstText"
-                    app:orientation="vertical"
-                    app:secondRobotoFont="bold"
-                    app:secondText="secondText" />
-
-                <com.lockwood.multispan.roboto.RobotoThreeSpanView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:firstRobotoFont="black"
-                    app:firstText="firstText"
-                    app:orientation="vertical"
-                    app:secondRobotoFont="bold"
-                    app:secondText="secondText"
-                    app:firstSeparator=":"
-                    app:thirdRobotoFont="light"
-                    app:thirdText="thirdText" />
-
-                <com.lockwood.multispan.roboto.RobotoFourSpanView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:firstRobotoFont="black"
-                    app:firstText="firstText"
-                    app:fourthRobotoFont="thin"
-                    app:fourthText="fourthText"
-                    app:firstSeparator=":"
-                    app:orientation="vertical"
-                    app:secondRobotoFont="bold"
-                    app:secondText="secondText"
-                    app:thirdRobotoFont="light"
-                    app:thirdText="thirdText" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@android:color/darker_gray" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:orientation="vertical">
-
-                <com.lockwood.multispan.font.FontTwoSpanView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:firstFont="fonts/roboto_black.ttf"
-                    app:firstText="firstText"
-                    app:firstSeparator=":"
-                    
-                    app:orientation="vertical"
-                    app:secondFont="fonts/roboto_bold.ttf"
-                    app:secondText="secondText" />
-
-                <com.lockwood.multispan.font.FontThreeSpanView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:firstFont="fonts/roboto_black.ttf"
-                    app:firstText="firstText"
-                    app:orientation="vertical"
-                    app:secondFont="fonts/roboto_bold.ttf"
-                    app:firstSeparator=":"
-                    
-                    app:secondText="secondText"
-                    app:thirdFont="fonts/roboto_light.ttf"
-                    app:thirdText="thirdText" />
-
-                <com.lockwood.multispan.font.FontFourSpanView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:firstFont="fonts/roboto_black.ttf"
-                    app:firstSeparator=":"
-                    app:firstText="firstText"
-                    app:fourthFont="fonts/roboto_thin.ttf"
-                    app:fourthText="fourthText"
-                    app:orientation="vertical"
-                    app:secondFont="fonts/roboto_bold.ttf"
-                    app:secondText="secondText"
-                    app:thirdFont="fonts/roboto_light.ttf"
-                    app:thirdText="thirdText" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <com.lockwood.multispan.roboto.RobotoThreeSpanView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginBottom="16dp"
+            app:firstRobotoFont="black"
+            app:firstSeparator=":"
+            app:firstText="firstText"
+            app:orientation="vertical"
+            app:secondRobotoFont="bold"
+            app:secondText="secondText"
+            app:thirdRobotoFont="light"
+            app:thirdText="thirdText" />
 
-            <com.lockwood.multispan.roboto.RobotoTwoSpanView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                app:firstRobotoFont="black"
-                app:firstSeparator=":"
-                app:firstText="firstText"
-                app:orientation="horizontal"
-                app:secondRobotoFont="bold"
-                app:secondText="secondText" />
-
-            <com.lockwood.multispan.roboto.RobotoThreeSpanView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:firstRobotoFont="black"
-                app:firstText="firstText"
-                app:orientation="horizontal"
-                app:firstSeparator=":"
-                app:secondRobotoFont="bold"
-                app:secondText="secondText"
-                app:thirdRobotoFont="light"
-                app:thirdText="thirdText" />
-
-            <com.lockwood.multispan.roboto.RobotoFourSpanView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:firstRobotoFont="black"
-                app:firstText="firstText"
-                app:firstSeparator=":"
-                app:fourthRobotoFont="thin"
-                app:fourthText="fourthText"
-                android:layout_marginBottom="16dp"
-                app:orientation="horizontal"
-                app:secondRobotoFont="bold"
-                app:secondText="secondText"
-                app:thirdRobotoFont="light"
-                app:thirdText="thirdText" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
-
-            <com.lockwood.multispan.font.FontTwoSpanView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                app:firstFont="fonts/roboto_black.ttf"
-                app:firstSeparator=":"
-                app:firstText="firstText"
-                app:orientation="horizontal"
-                app:secondFont="fonts/roboto_bold.ttf"
-                app:secondText="secondText" />
-
-            <com.lockwood.multispan.font.FontThreeSpanView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:firstFont="fonts/roboto_black.ttf"
-                app:firstText="firstText"
-                app:orientation="horizontal"
-                app:firstSeparator=":"
-                app:secondFont="fonts/roboto_bold.ttf"
-                app:secondText="secondText"
-                app:thirdFont="fonts/roboto_light.ttf"
-                app:thirdText="thirdText" />
-
-            <com.lockwood.multispan.font.FontFourSpanView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:firstFont="fonts/roboto_black.ttf"
-                app:firstText="firstText"
-                app:fourthFont="fonts/roboto_thin.ttf"
-                app:fourthText="fourthText"
-                app:firstSeparator=":"
-                app:orientation="horizontal"
-                app:secondFont="fonts/roboto_bold.ttf"
-                app:secondText="secondText"
-                app:thirdFont="fonts/roboto_light.ttf"
-                app:thirdText="thirdText" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        <com.lockwood.multispan.roboto.RobotoFourSpanView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:firstRobotoFont="black"
+            app:firstSeparator=":"
+            app:firstText="firstText"
+            app:fourthRobotoFont="thin"
+            app:fourthText="fourthText"
+            app:orientation="vertical"
+            app:secondRobotoFont="bold"
+            app:secondText="secondText"
+            app:thirdRobotoFont="light"
+            app:thirdText="thirdText" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

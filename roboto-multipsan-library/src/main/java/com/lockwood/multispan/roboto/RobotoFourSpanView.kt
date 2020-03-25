@@ -49,5 +49,4 @@ open class RobotoFourSpanView @JvmOverloads constructor(
             fourthStyle = getRobotoFontStyle(R.styleable.RobotoFourSpanView_fourthRobotoFont)
         }
     }
-
 }

@@ -86,7 +86,7 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
             spannableBuilder.applySpanStyle(position, item)
         }
         val result = SpannableString(spannableBuilder.trimEnd())
-        val spannableString = if (result.isNotEmpty()){
+        val spannableString = if (result.isNotEmpty()) {
             setSpanOnResult(result)
         } else {
             result
