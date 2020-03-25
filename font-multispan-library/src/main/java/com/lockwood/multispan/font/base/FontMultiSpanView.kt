@@ -27,10 +27,10 @@ import com.lockwood.multispan.font.spannable.FontSpannable
 import com.lockwood.multispan.property.SpanProperty
 import kotlin.reflect.KProperty
 
-abstract class FontMultiSpanView<T : FontSpanItem> @JvmOverloads constructor(
+abstract class FontMultiSpanView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
-) : MultiSpanView<T>(context, attrs), FontSpannable<T> {
+) : MultiSpanView<FontSpanItem>(context, attrs), FontSpannable {
 
     override fun initSpan() = FontSpanItem(
         textSize = textSize.toInt(),

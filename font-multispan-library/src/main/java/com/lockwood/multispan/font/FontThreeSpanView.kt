@@ -23,10 +23,10 @@ import com.lockwood.multispan.font.spannable.FontThreeSpan
 import com.lockwood.multispan.spannable.ThreeSpan.Companion.ITEM_THIRD
 import com.lockwood.multispan.spannable.ThreeSpan.Companion.THREE_ITEMS_COUNT
 
-open class FontThreeSpanView<T : FontSpanItem> @JvmOverloads constructor(
+open class FontThreeSpanView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
-) : FontTwoSpanView<T>(context, attrs), FontThreeSpan<T> {
+) : FontTwoSpanView(context, attrs), FontThreeSpan {
 
     override var spansCount = THREE_ITEMS_COUNT
 

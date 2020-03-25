@@ -20,7 +20,7 @@ import android.graphics.Typeface
 import com.lockwood.multispan.font.item.FontSpanItem
 import com.lockwood.multispan.spannable.FourSpan
 
-interface FontFourSpan<T : FontSpanItem> : FourSpan<T>, FontThreeSpan<T> {
+interface FontFourSpan : FourSpan<FontSpanItem>, FontThreeSpan {
 
     var fourthFont: Typeface
 }

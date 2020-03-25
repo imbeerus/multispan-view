@@ -19,16 +19,15 @@ package com.lockwood.multispan.font
 import android.content.Context
 import android.util.AttributeSet
 import com.lockwood.multispan.font.base.FontMultiSpanView
-import com.lockwood.multispan.font.item.FontSpanItem
 import com.lockwood.multispan.font.spannable.FontTwoSpan
 import com.lockwood.multispan.spannable.TwoSpan.Companion.ITEM_FIRST
 import com.lockwood.multispan.spannable.TwoSpan.Companion.ITEM_SECOND
 import com.lockwood.multispan.spannable.TwoSpan.Companion.TWO_ITEMS_COUNT
 
-open class FontTwoSpanView<T : FontSpanItem> @JvmOverloads constructor(
+open class FontTwoSpanView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
-) : FontMultiSpanView<T>(context, attrs), FontTwoSpan<T> {
+) : FontMultiSpanView(context, attrs), FontTwoSpan {
 
     override var spansCount = TWO_ITEMS_COUNT
 

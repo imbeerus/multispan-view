@@ -20,7 +20,7 @@ import android.graphics.Typeface
 import com.lockwood.multispan.font.item.FontSpanItem
 import com.lockwood.multispan.spannable.TwoSpan
 
-interface FontTwoSpan<T : FontSpanItem> : TwoSpan<T>, FontSpannable<T> {
+interface FontTwoSpan : TwoSpan<FontSpanItem>, FontSpannable {
 
     var firstFont: Typeface
 

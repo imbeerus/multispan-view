@@ -18,15 +18,14 @@ package com.lockwood.multispan.font
 
 import android.content.Context
 import android.util.AttributeSet
-import com.lockwood.multispan.font.item.FontSpanItem
 import com.lockwood.multispan.font.spannable.FontFourSpan
 import com.lockwood.multispan.spannable.FourSpan.Companion.FOUR_ITEMS_COUNT
 import com.lockwood.multispan.spannable.FourSpan.Companion.ITEM_FOURTH
 
-open class FontFourSpanView<T : FontSpanItem> @JvmOverloads constructor(
+open class FontFourSpanView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
-) : FontThreeSpanView<T>(context, attrs), FontFourSpan<T> {
+) : FontThreeSpanView(context, attrs), FontFourSpan {
 
     override var spansCount = FOUR_ITEMS_COUNT
 

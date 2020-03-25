@@ -19,4 +19,4 @@ package com.lockwood.multispan.font.spannable
 import com.lockwood.multispan.font.item.FontSpanItem
 import com.lockwood.multispan.spannable.Spannable
 
-interface FontSpannable<T : FontSpanItem> : Spannable<T>
+interface FontSpannable : Spannable<FontSpanItem>
