@@ -12,11 +12,8 @@ Allow to apply custom Spans and [change gravity of Drawable][2]
 
 ### Features
 * Optimized way to use text styling and drawables with TextView
-* Change style of spans in your way
-* Change gravity of compound drawables
-* RobotoSpanView if you need 
-* Drawable transformations (resize, tint)
-* CompoundViewClickListener
+* RobotoSpanView or if you need custom fonts FontSpanView
+* Change style of spans in your way (by [Spannable][3] or [setSpanOnResult][4])
 * Right-to-left Support
 
 ## Download
@@ -55,3 +52,5 @@ limitations under the License.
 ```
 [1]: https://github.com/lndmflngs/multispan-view/releases/latest
 [2]: https://github.com/lndmflngs/compound-text-view
+[3]: https://github.com/lndmflngs/multispan-view/blob/master/multispan-library/src/main/java/com/lockwood/multispan/spannable/Spannable.kt
+[4]: https://github.com/lndmflngs/multispan-view/blob/161dc0db5c8c5a327d5ca9312e575c18a8385502/multispan-library/src/main/java/com/lockwood/multispan/MultiSpanView.kt#L97-98
