@@ -64,6 +64,9 @@ dependencies {
 
     androidTestUtil 'androidx.test:orchestrator:1.2.0'
 
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
+
     // Core library
     androidTestImplementation 'androidx.test:core:1.2.0'
     // AndroidJUnitRunner and JUnit Rules
@@ -72,7 +75,6 @@ dependencies {
     // Assertions
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.1'
-    androidTestImplementation 'com.google.truth:truth:0.42'
 
     // Espresso dependencies
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

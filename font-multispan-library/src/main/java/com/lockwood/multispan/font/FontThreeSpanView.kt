@@ -18,15 +18,15 @@ package com.lockwood.multispan.font
 
 import android.content.Context
 import android.util.AttributeSet
-import com.lockwood.multispan.font.item.FontSpanItem
 import com.lockwood.multispan.font.spannable.FontThreeSpan
 import com.lockwood.multispan.spannable.ThreeSpan.Companion.ITEM_THIRD
 import com.lockwood.multispan.spannable.ThreeSpan.Companion.THREE_ITEMS_COUNT
 
 open class FontThreeSpanView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
-) : FontTwoSpanView(context, attrs), FontThreeSpan {
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = android.R.attr.textViewStyle
+) : FontTwoSpanView(context, attrs, defStyleAttr), FontThreeSpan {
 
     override var spansCount = THREE_ITEMS_COUNT
 
@@ -38,12 +38,8 @@ open class FontThreeSpanView @JvmOverloads constructor(
     override var thirdFont by fontProperty { ITEM_THIRD }
 
     init {
-        fetchAttrs(R.styleable.MultiSpanView, context, attrs) {
-            thirdText = getStringOrEmpty(R.styleable.MultiSpanView_thirdText)
-            thirdTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_thirdTextSize)
-            thirdTextColor = getTextColorOrDefault(R.styleable.MultiSpanView_thirdTextColor)
-            thirdSeparator = getStringOrEmpty(R.styleable.MultiSpanView_thirdSeparator)
-        }
+        fetchThreeSpanAttrs(context, attrs)
+
         fetchAttrs(R.styleable.FontThreeSpanView, context, attrs) {
             thirdFont = getFontOrDefault(R.styleable.FontThreeSpanView_thirdFont)
         }

@@ -33,6 +33,7 @@ dependencies {
 ```
 ## Usage
 The simplest way is to use `RobotoSpanView` or `FontSpanView` like a normal `TextView`
+
 ```xml
         <com.lockwood.multispan.roboto.RobotoTwoSpanView
             android:layout_width="match_parent"
@@ -45,20 +46,18 @@ The simplest way is to use `RobotoSpanView` or `FontSpanView` like a normal `Tex
             app:secondText="Mr. Fluffypants" />
 ```
 #### Styling
+You can make your own spans (AlignTopSuperscriptSpan, CustomCalligraphyTypefaceSpan) and apply them in your views
 
 #### Line spacing
 To set height between lines of text you can use [lineSpacingExtra][5] or [lineSpacingExtra][6]
 
 #### Image loading
-
-There are several libraries that follow best practices for loading images. I recommend Glide, but you can use others: Picasso, Coil.
-
-**Examples**: [Glide][9], [Picasso][10], [Coil][11]
+There are several libraries that follow best practices for loading images. I recommend [Glide][9], but you can use others: [Picasso][10], [Coil][11].
 
 #### Data binding
 If you use data binding you can use [this][8] adapter
 
-For more information see `app` directory and
+For more information see `app` directory and documentation
 
 ## Issue Tracking
 Found a bug? Have an idea for an improvement? Feel free to [add an issue](../../issues)
@@ -84,7 +83,7 @@ limitations under the License.
 [5]: https://developer.android.com/reference/android/widget/TextView#attr_android:lineSpacingExtra
 [6]: https://developer.android.com/reference/android/widget/TextView#attr_android:lineSpacingMultiplier
 [7]: https://github.com/lndmflngs/multispan-view#usage
-[8]: https://github.com/lndmflngs/multispan-view
+[8]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/BindingExample.kt
 [9]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L102-L107
 [10]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L110-L114
 [11]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L117-L124

@@ -18,30 +18,31 @@ package com.lockwood.multispan.font
 
 import android.content.Context
 import android.util.AttributeSet
-import com.lockwood.multispan.font.spannable.FontTwoSpan
-import com.lockwood.multispan.spannable.TwoSpan.Companion.ITEM_SECOND
-import com.lockwood.multispan.spannable.TwoSpan.Companion.TWO_ITEMS_COUNT
+import com.lockwood.multispan.font.base.FontMultiSpanView
+import com.lockwood.multispan.font.spannable.FontSingleSpan
+import com.lockwood.multispan.spannable.SingleSpan.Companion.ITEM_FIRST
+import com.lockwood.multispan.spannable.SingleSpan.Companion.ONE_ITEM_COUNT
 
-open class FontTwoSpanView @JvmOverloads constructor(
+open class FontSingleSpanView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = android.R.attr.textViewStyle
-) : FontSingleSpanView(context, attrs, defStyleAttr), FontTwoSpan {
+) : FontMultiSpanView(context, attrs, defStyleAttr), FontSingleSpan {
 
-    override var spansCount = TWO_ITEMS_COUNT
+    override var spansCount = ONE_ITEM_COUNT
 
-    override var secondText by textProperty { ITEM_SECOND }
-    override var secondTextSize by textSizeProperty { ITEM_SECOND }
-    override var secondTextColor by textColorProperty { ITEM_SECOND }
-    override var secondSeparator by textSeparatorProperty { ITEM_SECOND }
+    override var firstText by textProperty { ITEM_FIRST }
+    override var firstTextSize by textSizeProperty { ITEM_FIRST }
+    override var firstTextColor by textColorProperty { ITEM_FIRST }
+    override var firstSeparator by textSeparatorProperty { ITEM_FIRST }
 
-    override var secondFont by fontProperty { ITEM_SECOND }
+    override var firstFont by fontProperty { ITEM_FIRST }
 
     init {
-        fetchTwoSpanAttrs(context, attrs)
+        fetchSingleSpanAttrs(context, attrs)
 
         fetchAttrs(R.styleable.FontTwoSpanView, context, attrs) {
-            secondFont = getFontOrDefault(R.styleable.FontTwoSpanView_secondFont)
+            firstFont = getFontOrDefault(R.styleable.FontTwoSpanView_firstFont)
         }
     }
 

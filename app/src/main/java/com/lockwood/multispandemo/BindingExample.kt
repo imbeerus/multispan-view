@@ -1,6 +1,9 @@
 package com.lockwood.multispandemo
 
 import androidx.databinding.BindingAdapter
+import com.lockwood.multispan.roboto.RobotoFourSpanView
+import com.lockwood.multispan.roboto.RobotoThreeSpanView
+import com.lockwood.multispan.roboto.RobotoTwoSpanView
 import com.lockwood.multispan.spannable.FourSpan
 import com.lockwood.multispan.spannable.ThreeSpan
 import com.lockwood.multispan.spannable.TwoSpan
@@ -11,7 +14,7 @@ import com.lockwood.multispan.spannable.TwoSpan
         "secondText"
     ]
 )
-fun TwoSpan<*>.setGravityDrawables(
+fun RobotoTwoSpanView.setText(
     firstStr: String,
     secondStr: String
 ) {
@@ -26,7 +29,7 @@ fun TwoSpan<*>.setGravityDrawables(
         "thirdText"
     ]
 )
-fun ThreeSpan<*>.setGravityDrawables(
+fun RobotoThreeSpanView.setText(
     firstStr: String,
     secondStr: String,
     thirdStr: String
@@ -44,7 +47,7 @@ fun ThreeSpan<*>.setGravityDrawables(
         "fourthText"
     ]
 )
-fun FourSpan<*>.setGravityDrawables(
+fun RobotoFourSpanView.setText(
     firstStr: String,
     secondStr: String,
     thirdStr: String,

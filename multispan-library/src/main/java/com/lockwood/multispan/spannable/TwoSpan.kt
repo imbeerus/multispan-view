@@ -18,12 +18,7 @@ package com.lockwood.multispan.spannable
 
 import com.lockwood.multispan.item.SpanItem
 
-interface TwoSpan<T : SpanItem> : Spannable<T> {
-
-    var firstText: String
-    var firstTextSize: Int
-    var firstTextColor: Int
-    var firstSeparator: String
+interface TwoSpan<T : SpanItem> : SingleSpan<T> {
 
     var secondText: String
     var secondTextSize: Int
@@ -33,7 +28,6 @@ interface TwoSpan<T : SpanItem> : Spannable<T> {
     companion object {
         const val TWO_ITEMS_COUNT = 2
 
-        const val ITEM_FIRST = 0
         const val ITEM_SECOND = 1
     }
 

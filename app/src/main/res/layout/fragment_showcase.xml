@@ -40,6 +40,7 @@
         <com.lockwood.multispan.roboto.RobotoFourSpanView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             app:firstRobotoFont="black"
             app:firstSeparator=":"
             app:firstText="firstText"
@@ -50,6 +51,17 @@
             app:secondText="secondText"
             app:thirdRobotoFont="light"
             app:thirdText="thirdText" />
+
+        <com.lockwood.multispandemo.view.HighlightTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:firstText="Some text to test Highlight pattern"
+            app:orientation="vertical"
+            app:highlightColor="@color/primary"
+            app:highlightFont="fonts/roboto_bold.ttf"
+            app:highlightPattern="^((\\+7|7|8)+([0-9]){10})\$"
+            app:secondText="You need to be careful with special characters when you set highlight pattern, eg phone number: +79855310868" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

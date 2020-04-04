@@ -17,10 +17,10 @@
 package com.lockwood.multispan.roboto.spannable
 
 import com.lockwood.multispan.roboto.item.RobotoSpanItem
-import com.lockwood.multispan.spannable.TwoSpan
+import com.lockwood.multispan.spannable.SingleSpan
 
-interface RobotoTwoSpan : TwoSpan<RobotoSpanItem>, RobotoSingleSpan {
+interface RobotoSingleSpan : SingleSpan<RobotoSpanItem>, RobotoSpannable {
 
-    var secondFont: String
-    var secondStyle: Int
+    var firstFont: String
+    var firstStyle: Int
 }

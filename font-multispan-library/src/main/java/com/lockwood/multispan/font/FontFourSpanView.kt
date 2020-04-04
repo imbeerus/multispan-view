@@ -24,8 +24,9 @@ import com.lockwood.multispan.spannable.FourSpan.Companion.ITEM_FOURTH
 
 open class FontFourSpanView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
-) : FontThreeSpanView(context, attrs), FontFourSpan {
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = android.R.attr.textViewStyle
+) : FontThreeSpanView(context, attrs, defStyleAttr), FontFourSpan {
 
     override var spansCount = FOUR_ITEMS_COUNT
 
@@ -37,12 +38,8 @@ open class FontFourSpanView @JvmOverloads constructor(
     override var fourthFont by fontProperty { ITEM_FOURTH }
 
     init {
-        fetchAttrs(R.styleable.MultiSpanView, context, attrs) {
-            fourthText = getStringOrEmpty(R.styleable.MultiSpanView_fourthText)
-            fourthTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_fourthTextSize)
-            fourthTextColor = getTextColorOrDefault(R.styleable.MultiSpanView_fourthTextColor)
-            fourthSeparator = getStringOrEmpty(R.styleable.MultiSpanView_fourthSeparator)
-        }
+        fetchFourSpanAttrs(context, attrs)
+
         fetchAttrs(R.styleable.FontFourSpanView, context, attrs) {
             fourthFont = getFontOrDefault(R.styleable.FontFourSpanView_fourthFont)
         }

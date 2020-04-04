@@ -24,8 +24,9 @@ import com.lockwood.multispan.spannable.FourSpan.Companion.ITEM_FOURTH
 
 open class RobotoFourSpanView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
-) : RobotoThreeSpanView(context, attrs), RobotoFourSpan {
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = android.R.attr.textViewStyle
+) : RobotoThreeSpanView(context, attrs, defStyleAttr), RobotoFourSpan {
 
     override var spansCount = FOUR_ITEMS_COUNT
 
@@ -38,12 +39,8 @@ open class RobotoFourSpanView @JvmOverloads constructor(
     override var fourthStyle by styleProperty { ITEM_FOURTH }
 
     init {
-        fetchAttrs(R.styleable.MultiSpanView, context, attrs) {
-            fourthText = getStringOrEmpty(R.styleable.MultiSpanView_fourthText)
-            fourthTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_fourthTextSize)
-            fourthTextColor = getTextColorOrDefault(R.styleable.MultiSpanView_fourthTextColor)
-            fourthSeparator = getStringOrEmpty(R.styleable.MultiSpanView_fourthSeparator)
-        }
+        fetchFourSpanAttrs(context, attrs)
+
         fetchAttrs(R.styleable.RobotoFourSpanView, context, attrs) {
             fourthFont = getRobotoFontFamily(R.styleable.RobotoFourSpanView_fourthRobotoFont)
             fourthStyle = getRobotoFontStyle(R.styleable.RobotoFourSpanView_fourthRobotoFont)

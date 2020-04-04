@@ -6,23 +6,30 @@
             <enum name="horizontal" value="0" />
             <enum name="vertical" value="1" />
         </attr>
+    </declare-styleable>
 
+    <declare-styleable name="SingleSpanView">
         <attr name="firstText" format="string" />
         <attr name="firstTextSize" format="dimension" />
         <attr name="firstTextColor" format="color" />
         <attr name="firstSeparator" format="string" />
+    </declare-styleable>
 
+    <declare-styleable name="TwoSpanView">
         <attr name="secondText" format="string" />
         <attr name="secondTextSize" format="dimension" />
         <attr name="secondTextColor" format="color" />
         <attr name="secondSeparator" format="string" />
+    </declare-styleable>
 
+    <declare-styleable name="ThreeSpanView">
         <attr name="thirdText" format="string" />
         <attr name="thirdTextSize" format="dimension" />
         <attr name="thirdTextColor" format="color" />
         <attr name="thirdSeparator" format="string" />
+    </declare-styleable>
 
-
+    <declare-styleable name="FourSpanView">
         <attr name="fourthText" format="string" />
         <attr name="fourthTextSize" format="dimension" />
         <attr name="fourthTextColor" format="color" />

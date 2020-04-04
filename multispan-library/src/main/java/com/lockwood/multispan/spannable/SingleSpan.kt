@@ -14,13 +14,21 @@
  * limitations under the License.
  */
 
-package com.lockwood.multispan.roboto.spannable
+package com.lockwood.multispan.spannable
 
-import com.lockwood.multispan.roboto.item.RobotoSpanItem
-import com.lockwood.multispan.spannable.TwoSpan
+import com.lockwood.multispan.item.SpanItem
 
-interface RobotoTwoSpan : TwoSpan<RobotoSpanItem>, RobotoSingleSpan {
+interface SingleSpan<T : SpanItem> : Spannable<T> {
 
-    var secondFont: String
-    var secondStyle: Int
+    var firstText: String
+    var firstTextSize: Int
+    var firstTextColor: Int
+    var firstSeparator: String
+
+    companion object {
+        const val ONE_ITEM_COUNT = 1
+
+        const val ITEM_FIRST = 0
+    }
+
 }

@@ -29,8 +29,9 @@ import kotlin.reflect.KProperty
 
 abstract class FontMultiSpanView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
-) : MultiSpanView<FontSpanItem>(context, attrs), FontSpannable {
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = android.R.attr.textViewStyle
+) : MultiSpanView<FontSpanItem>(context, attrs, defStyleAttr), FontSpannable {
 
     override fun initSpan() = FontSpanItem(
         textSize = textSize.toInt(),
@@ -38,6 +39,14 @@ abstract class FontMultiSpanView @JvmOverloads constructor(
         font = typeface
     )
 
+    protected open fun fetchFontFromAssets(path: String): Typeface = try {
+        Typeface.createFromAsset(context.assets, path)
+    } catch (e: Exception) {
+        Log.e(TAG, "fetchFontFromAssets: ${e.cause}")
+        typeface
+    }
+
+    //region TypedArray extensions
     protected fun TypedArray.getFontOrDefault(
         index: Int
     ): Typeface {
@@ -48,19 +57,15 @@ abstract class FontMultiSpanView @JvmOverloads constructor(
             typeface
         }
     }
+    // endregion
 
-    protected open fun fetchFontFromAssets(path: String): Typeface = try {
-        Typeface.createFromAsset(context.assets, path)
-    } catch (e: Exception) {
-        Log.e(TAG, "fetchFontFromAssets: ${e.cause}")
-        typeface
-    }
+    //region Font Span property functions
+    protected inline fun fontProperty(position: () -> Int) =
+        SpanFontDelegate(position())
+    // endregion
 
-    protected inline fun fontProperty(
-        position: () -> Int
-    ) = SpanFontProperty(position())
-
-    protected inner class SpanFontProperty(
+    //region Font span property delegates
+    protected inner class SpanFontDelegate(
         position: Int
     ) : SpanProperty<Typeface>(position) {
 
@@ -73,6 +78,7 @@ abstract class FontMultiSpanView @JvmOverloads constructor(
             updateSpanStyles()
         }
     }
+    // endregion
 
     companion object {
 

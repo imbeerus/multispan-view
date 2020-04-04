@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package com.lockwood.multispan.roboto.spannable
+package com.lockwood.multispan.font.spannable
 
-import com.lockwood.multispan.roboto.item.RobotoSpanItem
+import android.graphics.Typeface
+import com.lockwood.multispan.font.item.FontSpanItem
+import com.lockwood.multispan.spannable.SingleSpan
 import com.lockwood.multispan.spannable.TwoSpan
 
-interface RobotoTwoSpan : TwoSpan<RobotoSpanItem>, RobotoSingleSpan {
+interface FontSingleSpan : SingleSpan<FontSpanItem>, FontSpannable {
 
-    var secondFont: String
-    var secondStyle: Int
+    var firstFont: Typeface
 }

@@ -24,8 +24,9 @@ import com.lockwood.multispan.spannable.ThreeSpan.Companion.THREE_ITEMS_COUNT
 
 open class RobotoThreeSpanView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
-) : RobotoTwoSpanView(context, attrs), RobotoThreeSpan {
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = android.R.attr.textViewStyle
+) : RobotoTwoSpanView(context, attrs, defStyleAttr), RobotoThreeSpan {
 
     override var spansCount = THREE_ITEMS_COUNT
 
@@ -38,12 +39,8 @@ open class RobotoThreeSpanView @JvmOverloads constructor(
     override var thirdStyle by styleProperty { ITEM_THIRD }
 
     init {
-        fetchAttrs(R.styleable.MultiSpanView, context, attrs) {
-            thirdText = getStringOrEmpty(R.styleable.MultiSpanView_thirdText)
-            thirdTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_thirdTextSize)
-            thirdTextColor = getTextColorOrDefault(R.styleable.MultiSpanView_thirdTextColor)
-            thirdSeparator = getStringOrEmpty(R.styleable.MultiSpanView_thirdSeparator)
-        }
+        fetchThreeSpanAttrs(context, attrs)
+
         fetchAttrs(R.styleable.RobotoThreeSpanView, context, attrs) {
             thirdFont = getRobotoFontFamily(R.styleable.RobotoThreeSpanView_thirdRobotoFont)
             thirdStyle = getRobotoFontStyle(R.styleable.RobotoThreeSpanView_thirdRobotoFont)

@@ -28,8 +28,14 @@ import kotlin.reflect.KProperty
 
 abstract class RobotoMultiSpanView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
-) : MultiSpanView<RobotoSpanItem>(context, attrs), RobotoSpannable {
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = android.R.attr.textViewStyle
+) : MultiSpanView<RobotoSpanItem>(context, attrs, defStyleAttr), RobotoSpannable {
+
+    companion object {
+
+        private const val REGULAR_ROBOTO_FONT = 0
+    }
 
     private val robotoFontFamilies = resources.getStringArray(R.array.roboto_font_families)
     private val robotoStyles = resources.getIntArray(R.array.roboto_styles)
@@ -39,6 +45,7 @@ abstract class RobotoMultiSpanView @JvmOverloads constructor(
         textColor = currentTextColor
     )
 
+    //region TypedArray extensions
     protected fun TypedArray.getRobotoFontFamily(index: Int): String {
         val position = getInt(index, REGULAR_ROBOTO_FONT)
         return try {
@@ -56,16 +63,18 @@ abstract class RobotoMultiSpanView @JvmOverloads constructor(
             robotoStyles[REGULAR_ROBOTO_FONT]
         }
     }
+    // endregion
 
-    protected inline fun fontProperty(
-        position: () -> Int
-    ) = SpanFontProperty(position())
+    //region Roboto Span property functions
+    protected inline fun fontProperty(position: () -> Int) =
+        SpanFontDelegate(position())
 
-    protected inline fun styleProperty(
-        position: () -> Int
-    ) = SpanStyleProperty(position())
+    protected inline fun styleProperty(position: () -> Int) =
+        SpanStyleDelegate(position())
+    // endregion
 
-    protected inner class SpanFontProperty(
+    //region Roboto span property delegates
+    protected inner class SpanFontDelegate(
         position: Int
     ) : SpanProperty<String>(position) {
 
@@ -79,7 +88,7 @@ abstract class RobotoMultiSpanView @JvmOverloads constructor(
         }
     }
 
-    protected inner class SpanStyleProperty(
+    protected inner class SpanStyleDelegate(
         position: Int
     ) : SpanProperty<Int>(position) {
 
@@ -92,11 +101,7 @@ abstract class RobotoMultiSpanView @JvmOverloads constructor(
             updateSpanStyles()
         }
     }
-
-    companion object {
-
-        private const val REGULAR_ROBOTO_FONT = 0
-    }
+    // endregion
 
 }
 

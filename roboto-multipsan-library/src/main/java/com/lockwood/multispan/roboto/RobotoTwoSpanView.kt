@@ -18,26 +18,17 @@ package com.lockwood.multispan.roboto
 
 import android.content.Context
 import android.util.AttributeSet
-import com.lockwood.multispan.roboto.base.RobotoMultiSpanView
 import com.lockwood.multispan.roboto.spannable.RobotoTwoSpan
-import com.lockwood.multispan.spannable.TwoSpan.Companion.ITEM_FIRST
 import com.lockwood.multispan.spannable.TwoSpan.Companion.ITEM_SECOND
 import com.lockwood.multispan.spannable.TwoSpan.Companion.TWO_ITEMS_COUNT
 
 open class RobotoTwoSpanView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null
-) : RobotoMultiSpanView(context, attrs), RobotoTwoSpan {
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = android.R.attr.textViewStyle
+) : RobotoSingleSpanView(context, attrs, defStyleAttr), RobotoTwoSpan {
 
     override var spansCount = TWO_ITEMS_COUNT
-
-    override var firstText by textProperty { ITEM_FIRST }
-    override var firstTextSize by textSizeProperty { ITEM_FIRST }
-    override var firstTextColor by textColorProperty { ITEM_FIRST }
-    override var firstSeparator by textSeparatorProperty { ITEM_FIRST }
-
-    override var firstFont by fontProperty { ITEM_FIRST }
-    override var firstStyle by styleProperty { ITEM_FIRST }
 
     override var secondText by textProperty { ITEM_SECOND }
     override var secondTextSize by textSizeProperty { ITEM_SECOND }
@@ -48,21 +39,9 @@ open class RobotoTwoSpanView @JvmOverloads constructor(
     override var secondStyle by styleProperty { ITEM_SECOND }
 
     init {
-        fetchAttrs(R.styleable.MultiSpanView, context, attrs) {
-            firstText = getStringOrEmpty(R.styleable.MultiSpanView_firstText)
-            firstTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_firstTextSize)
-            firstTextColor = getTextColorOrDefault(R.styleable.MultiSpanView_firstTextColor)
-            firstSeparator = getStringOrEmpty(R.styleable.MultiSpanView_firstSeparator)
+        fetchTwoSpanAttrs(context, attrs)
 
-            secondText = getStringOrEmpty(R.styleable.MultiSpanView_secondText)
-            secondTextSize = getTextSizeOrCurrent(R.styleable.MultiSpanView_secondTextSize)
-            secondTextColor = getTextColorOrDefault(R.styleable.MultiSpanView_secondTextColor)
-            secondSeparator = getStringOrEmpty(R.styleable.MultiSpanView_secondSeparator)
-        }
         fetchAttrs(R.styleable.RobotoTwoSpanView, context, attrs) {
-            firstFont = getRobotoFontFamily(R.styleable.RobotoTwoSpanView_firstRobotoFont)
-            firstStyle = getRobotoFontStyle(R.styleable.RobotoTwoSpanView_firstRobotoFont)
-
             secondFont = getRobotoFontFamily(R.styleable.RobotoTwoSpanView_secondRobotoFont)
             secondStyle = getRobotoFontStyle(R.styleable.RobotoTwoSpanView_secondRobotoFont)
         }
