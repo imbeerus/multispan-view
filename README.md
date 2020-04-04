@@ -48,9 +48,6 @@ The simplest way is to use `RobotoSpanView` or `FontSpanView` like a normal `Tex
 #### Styling
 You can make your own spans (AlignTopSuperscriptSpan, CustomCalligraphyTypefaceSpan) and apply them in your views
 
-#### Line spacing
-To set height between lines of text you can use [lineSpacingExtra][5] or [lineSpacingExtra][6]
-
 #### Image loading
 There are several libraries that follow best practices for loading images. I recommend [Glide][9], but you can use others: [Picasso][10], [Coil][11].
 
