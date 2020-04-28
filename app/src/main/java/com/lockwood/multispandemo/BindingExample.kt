@@ -4,9 +4,6 @@ import androidx.databinding.BindingAdapter
 import com.lockwood.multispan.roboto.RobotoFourSpanView
 import com.lockwood.multispan.roboto.RobotoThreeSpanView
 import com.lockwood.multispan.roboto.RobotoTwoSpanView
-import com.lockwood.multispan.spannable.FourSpan
-import com.lockwood.multispan.spannable.ThreeSpan
-import com.lockwood.multispan.spannable.TwoSpan
 
 @BindingAdapter(
     value = [

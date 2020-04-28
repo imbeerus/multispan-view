@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.lockwood.multispan.delegate
+package com.lockwood.multispan.delegate.base
 
 import com.lockwood.multispan.item.SpanItem
 import kotlin.properties.ReadWriteProperty

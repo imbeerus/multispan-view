@@ -1,5 +1,6 @@
 package com.lockwood.multispan.delegate
 
+import com.lockwood.multispan.delegate.base.SpanDelegate
 import com.lockwood.multispan.item.SpanItem
 import kotlin.reflect.KProperty
 

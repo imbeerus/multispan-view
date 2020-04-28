@@ -19,7 +19,6 @@ package com.lockwood.multispan.font.spannable
 import android.graphics.Typeface
 import com.lockwood.multispan.font.item.FontSpanItem
 import com.lockwood.multispan.spannable.SingleSpan
-import com.lockwood.multispan.spannable.TwoSpan
 
 interface FontSingleSpan : SingleSpan<FontSpanItem>, FontSpannable {
 

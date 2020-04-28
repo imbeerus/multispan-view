@@ -1,6 +1,6 @@
 package com.lockwood.multispan.roboto.delegate
 
-import com.lockwood.multispan.delegate.SpanDelegate
+import com.lockwood.multispan.delegate.base.SpanDelegate
 import com.lockwood.multispan.item.SpanItem
 import com.lockwood.multispan.roboto.item.RobotoSpanItem
 import kotlin.reflect.KProperty

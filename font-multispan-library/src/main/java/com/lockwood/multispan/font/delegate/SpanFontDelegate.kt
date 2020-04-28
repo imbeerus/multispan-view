@@ -1,7 +1,7 @@
 package com.lockwood.multispan.font.delegate
 
 import android.graphics.Typeface
-import com.lockwood.multispan.delegate.SpanDelegate
+import com.lockwood.multispan.delegate.base.SpanDelegate
 import com.lockwood.multispan.font.item.FontSpanItem
 import com.lockwood.multispan.item.SpanItem
 import kotlin.reflect.KProperty
