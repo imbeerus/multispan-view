@@ -18,6 +18,8 @@ package com.lockwood.multispan.roboto
 
 import android.content.Context
 import android.util.AttributeSet
+import com.lockwood.multispan.extensions.fetchAttrs
+import com.lockwood.multispan.extensions.fetchTwoSpanAttrs
 import com.lockwood.multispan.roboto.spannable.RobotoTwoSpan
 import com.lockwood.multispan.spannable.TwoSpan.Companion.ITEM_SECOND
 import com.lockwood.multispan.spannable.TwoSpan.Companion.TWO_ITEMS_COUNT
@@ -39,7 +41,7 @@ open class RobotoTwoSpanView @JvmOverloads constructor(
     override var secondStyle by styleProperty { ITEM_SECOND }
 
     init {
-        fetchTwoSpanAttrs(context, attrs)
+        fetchTwoSpanAttrs(context, attrs, defaultTextSize, defaultTextColor)
 
         fetchAttrs(R.styleable.RobotoTwoSpanView, context, attrs) {
             secondFont = getRobotoFontFamily(R.styleable.RobotoTwoSpanView_secondRobotoFont)

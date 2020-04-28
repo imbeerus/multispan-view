@@ -14,8 +14,15 @@
  * limitations under the License.
  */
 
-package com.lockwood.multispan.property
+package com.lockwood.multispan.delegate
 
+import com.lockwood.multispan.item.SpanItem
 import kotlin.properties.ReadWriteProperty
 
-abstract class SpanProperty<T : Any>(val position: Int) : ReadWriteProperty<Any, T>
+abstract class SpanDelegate<T : Any>(
+    protected val spanItem: SpanItem
+) : ReadWriteProperty<Any, T> {
+
+    protected open val onSet: () -> Unit = {}
+
+}

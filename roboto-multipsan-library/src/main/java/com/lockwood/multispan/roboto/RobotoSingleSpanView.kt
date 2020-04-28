@@ -18,6 +18,8 @@ package com.lockwood.multispan.roboto
 
 import android.content.Context
 import android.util.AttributeSet
+import com.lockwood.multispan.extensions.fetchAttrs
+import com.lockwood.multispan.extensions.fetchSingleSpanAttrs
 import com.lockwood.multispan.roboto.base.RobotoMultiSpanView
 import com.lockwood.multispan.roboto.spannable.RobotoSingleSpan
 import com.lockwood.multispan.spannable.SingleSpan.Companion.ITEM_FIRST
@@ -40,7 +42,7 @@ open class RobotoSingleSpanView @JvmOverloads constructor(
     override var firstStyle by styleProperty { ITEM_FIRST }
 
     init {
-        fetchSingleSpanAttrs(context, attrs)
+        fetchSingleSpanAttrs(context, attrs, defaultTextSize, defaultTextColor)
 
         fetchAttrs(R.styleable.RobotoSingleSpanView, context, attrs) {
             firstFont = getRobotoFontFamily(R.styleable.RobotoSingleSpanView_firstRobotoFont)

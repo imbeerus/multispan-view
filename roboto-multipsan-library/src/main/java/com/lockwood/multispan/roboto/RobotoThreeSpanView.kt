@@ -18,6 +18,8 @@ package com.lockwood.multispan.roboto
 
 import android.content.Context
 import android.util.AttributeSet
+import com.lockwood.multispan.extensions.fetchAttrs
+import com.lockwood.multispan.extensions.fetchThreeSpanAttrs
 import com.lockwood.multispan.roboto.spannable.RobotoThreeSpan
 import com.lockwood.multispan.spannable.ThreeSpan.Companion.ITEM_THIRD
 import com.lockwood.multispan.spannable.ThreeSpan.Companion.THREE_ITEMS_COUNT
@@ -39,7 +41,7 @@ open class RobotoThreeSpanView @JvmOverloads constructor(
     override var thirdStyle by styleProperty { ITEM_THIRD }
 
     init {
-        fetchThreeSpanAttrs(context, attrs)
+        fetchThreeSpanAttrs(context, attrs, defaultTextSize, defaultTextColor)
 
         fetchAttrs(R.styleable.RobotoThreeSpanView, context, attrs) {
             thirdFont = getRobotoFontFamily(R.styleable.RobotoThreeSpanView_thirdRobotoFont)

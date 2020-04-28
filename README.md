@@ -1,7 +1,6 @@
 # multispan-view
 [![API](https://img.shields.io/badge/API-15%2B-orange.svg)](https://android-arsenal.com/api?level=15)
 [![License](https://img.shields.io/badge/license-Apache%202-red.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![](https://img.shields.io/badge/docs-dokka-blue.svg?logo=kotlin)]()
 ![Android CI](https://github.com/lndmflngs/multispan-view/workflows/Android%20CI/badge.svg?branch=master)
 [![](https://jitpack.io/v/lndmflngs/multispan-view.svg)](https://jitpack.io/#lndmflngs/multispan-view)
 
@@ -54,7 +53,7 @@ There are several libraries that follow best practices for loading images. I rec
 #### Data binding
 If you use data binding you can use [this][4] adapter
 
-For more information see `app` directory and documentation
+For more information see `app` directory
 
 ## Issue Tracking
 Found a bug? Have an idea for an improvement? Feel free to [add an issue](../../issues)

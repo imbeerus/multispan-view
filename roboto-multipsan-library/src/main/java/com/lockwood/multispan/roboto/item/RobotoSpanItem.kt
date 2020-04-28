@@ -37,6 +37,8 @@ class RobotoSpanItem(
         return RobotoSpan(fontFamily, style, textSize, textColor.toStateList())
     }
 
-    private fun Int.toStateList(): ColorStateList = ColorStateList.valueOf(this)
+    private fun Int.toStateList(): ColorStateList {
+        return ColorStateList.valueOf(this)
+    }
 
 }

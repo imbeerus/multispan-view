@@ -7,6 +7,9 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.util.AttributeSet
 import android.util.Log
+import com.lockwood.multispan.extensions.fetchAttrs
+import com.lockwood.multispan.extensions.getStringOrEmpty
+import com.lockwood.multispan.extensions.getTextColorOrDefault
 import com.lockwood.multispan.font.FontTwoSpanView
 import com.lockwood.multispan.font.span.FontSpan
 import com.lockwood.multispandemo.R
@@ -43,7 +46,10 @@ class HighlightTextView @JvmOverloads constructor(
             highlightFont =
                 getFontOrDefault(R.styleable.HighlightTextView_highlightFont)
             highlightSpanColor =
-                getTextColorOrDefault(R.styleable.HighlightTextView_highlightColor)
+                getTextColorOrDefault(
+                    R.styleable.HighlightTextView_highlightColor,
+                    defaultTextColor
+                )
             isHighlight = getBoolean(
                 R.styleable.HighlightTextView_isHighlight,
                 DEFAULT_IS_HIGHLIGHT

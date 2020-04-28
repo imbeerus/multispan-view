@@ -17,17 +17,18 @@
 package com.lockwood.multispan
 
 import android.content.Context
-import android.content.res.TypedArray
-import android.graphics.Color
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.util.AttributeSet
 import com.lockwood.compound.CompoundTextView
+import com.lockwood.multispan.delegate.SpanColorDelegate
+import com.lockwood.multispan.delegate.SpanSeparatorDelegate
+import com.lockwood.multispan.delegate.SpanSizeDelegate
+import com.lockwood.multispan.delegate.SpanTextDelegate
+import com.lockwood.multispan.extensions.fetchAttrs
 import com.lockwood.multispan.item.SpanItem
-import com.lockwood.multispan.property.SpanProperty
-import com.lockwood.multispan.spannable.*
-import kotlin.reflect.KProperty
+import com.lockwood.multispan.spannable.Spannable
 
 abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
     context: Context,
@@ -39,10 +40,12 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
 
         private val TAG = MultiSpanView::class.java.simpleName
 
-        const val DEF_SPANS_COUNT = 0
         const val MAX_SPANS_COUNT = 4
         const val DEF_ORIENTATION = Orientation.HORIZONTAL
     }
+
+    //region Fields
+    abstract val spansCount: Int
 
     var orientation = DEF_ORIENTATION
         set(value) {
@@ -50,13 +53,16 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
             updateSpanStyles()
         }
 
-    protected open val spansCount = DEF_SPANS_COUNT
+    protected val spanItems = Array(MAX_SPANS_COUNT) { initSpan() }
 
-    protected open val defaultTextColor = Color.BLACK
+    protected val defaultTextSize
+        get() = textSize.toInt()
 
-    protected var spanItems = Array(MAX_SPANS_COUNT) { initSpan() }
+    protected val defaultTextColor
+        get() = currentTextColor
 
     private val spannableBuilder = SpannableStringBuilder()
+    //endregion
 
     init {
         fetchAttrs(R.styleable.MultiSpanView, context, attrs) {
@@ -87,160 +93,36 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
         return resultSpans
     }
 
-    //region TypedArray extensions
-    protected fun TypedArray.getStringOrEmpty(index: Int): String {
-        return getString(index) ?: ""
+    protected inline fun findSpan(position: () -> Int): SpanItem {
+        return spanItems[position()]
     }
-
-    protected fun TypedArray.getTextSizeOrDefault(index: Int): Int {
-        return getDimensionPixelSize(index, textSize.toInt())
-    }
-
-    protected fun TypedArray.getTextColorOrDefault(index: Int): Int {
-        return getColor(index, currentTextColor)
-    }
-    //endregion
-
-    //region MultiSpan fetchAttrs
-    protected inline fun fetchAttrs(
-        attrs: IntArray,
-        context: Context,
-        set: AttributeSet?,
-        fetch: TypedArray.() -> Unit = {}
-    ) {
-        context.theme.obtainStyledAttributes(
-            set,
-            attrs,
-            0,
-            0
-        ).apply {
-            try {
-                fetch()
-            } finally {
-                recycle()
-            }
-        }
-    }
-
-    protected fun SingleSpan<*>.fetchSingleSpanAttrs(
-        context: Context,
-        attrs: AttributeSet?
-    ) {
-        fetchAttrs(R.styleable.SingleSpanView, context, attrs) {
-            firstText = getStringOrEmpty(R.styleable.SingleSpanView_firstText)
-            firstTextSize = getTextSizeOrDefault(R.styleable.SingleSpanView_firstTextSize)
-            firstTextColor = getTextColorOrDefault(R.styleable.SingleSpanView_firstTextColor)
-            firstSeparator = getStringOrEmpty(R.styleable.SingleSpanView_firstSeparator)
-        }
-    }
-
-    protected fun TwoSpan<*>.fetchTwoSpanAttrs(
-        context: Context,
-        attrs: AttributeSet?
-    ) {
-        fetchSingleSpanAttrs(context, attrs)
-        fetchAttrs(R.styleable.TwoSpanView, context, attrs) {
-            secondText = getStringOrEmpty(R.styleable.TwoSpanView_secondText)
-            secondTextSize = getTextSizeOrDefault(R.styleable.TwoSpanView_secondTextSize)
-            secondTextColor = getTextColorOrDefault(R.styleable.TwoSpanView_secondTextColor)
-            secondSeparator = getStringOrEmpty(R.styleable.TwoSpanView_secondSeparator)
-        }
-    }
-
-    protected fun ThreeSpan<*>.fetchThreeSpanAttrs(
-        context: Context,
-        attrs: AttributeSet?
-    ) {
-        fetchTwoSpanAttrs(context, attrs)
-        fetchAttrs(R.styleable.ThreeSpanView, context, attrs) {
-            thirdText = getStringOrEmpty(R.styleable.ThreeSpanView_thirdText)
-            thirdTextSize = getTextSizeOrDefault(R.styleable.ThreeSpanView_thirdTextSize)
-            thirdTextColor = getTextColorOrDefault(R.styleable.ThreeSpanView_thirdTextColor)
-            thirdSeparator = getStringOrEmpty(R.styleable.ThreeSpanView_thirdSeparator)
-        }
-    }
-
-    protected fun FourSpan<*>.fetchFourSpanAttrs(
-        context: Context,
-        attrs: AttributeSet?
-    ) {
-        fetchThreeSpanAttrs(context, attrs)
-        fetchAttrs(R.styleable.FourSpanView, context, attrs) {
-            fourthText = getStringOrEmpty(R.styleable.FourSpanView_fourthText)
-            fourthTextSize = getTextSizeOrDefault(R.styleable.FourSpanView_fourthTextSize)
-            fourthTextColor = getTextColorOrDefault(R.styleable.FourSpanView_fourthTextColor)
-            fourthSeparator = getStringOrEmpty(R.styleable.FourSpanView_fourthSeparator)
-        }
-    }
-    //endregion
 
     //region Span property functions
-    protected inline fun textProperty(position: () -> Int) =
-        SpanTextProperty(position())
-
-    protected inline fun textSizeProperty(position: () -> Int) =
-        SpanSizeDelegate(position())
-
-    protected inline fun textColorProperty(position: () -> Int) =
-        SpanColorDelegate(position())
-
-    protected inline fun textSeparatorProperty(position: () -> Int) =
-        SpanSeparatorDelegate(position())
-    //endregion
-
-    //region Span property delegates
-    protected inner class SpanTextProperty(position: Int) : SpanProperty<String>(position) {
-
-        override fun getValue(thisRef: Any, property: KProperty<*>): String {
-            return spanItems[position].text
-        }
-
-        override fun setValue(thisRef: Any, property: KProperty<*>, value: String) {
-            spanItems[position].text = value
-            updateSpanStyles()
-        }
+    protected inline fun textProperty(position: () -> Int): SpanTextDelegate {
+        val item = findSpan(position)
+        return SpanTextDelegate(item) { updateSpanStyles() }
     }
 
-    protected inner class SpanSizeDelegate(position: Int) : SpanProperty<Int>(position) {
-
-        override fun getValue(thisRef: Any, property: KProperty<*>): Int {
-            return spanItems[position].textSize
-        }
-
-        override fun setValue(thisRef: Any, property: KProperty<*>, value: Int) {
-            spanItems[position].textSize = value
-            updateSpanStyles()
-        }
+    protected inline fun textSizeProperty(position: () -> Int): SpanSizeDelegate {
+        val item = findSpan(position)
+        return SpanSizeDelegate(item) { updateSpanStyles() }
     }
 
-    protected inner class SpanColorDelegate(position: Int) : SpanProperty<Int>(position) {
-
-        override fun getValue(thisRef: Any, property: KProperty<*>): Int {
-            return spanItems[position].textColor
-        }
-
-        override fun setValue(thisRef: Any, property: KProperty<*>, value: Int) {
-            spanItems[position].textColor = value
-            updateSpanStyles()
-        }
+    protected inline fun textColorProperty(position: () -> Int): SpanColorDelegate {
+        val item = findSpan(position)
+        return SpanColorDelegate(item) { updateSpanStyles() }
     }
 
-    protected inner class SpanSeparatorDelegate(position: Int) : SpanProperty<String>(position) {
-
-        override fun getValue(thisRef: Any, property: KProperty<*>): String {
-            return spanItems[position].separator
-        }
-
-        override fun setValue(thisRef: Any, property: KProperty<*>, value: String) {
-            spanItems[position].separator = value
-            updateSpanStyles()
-        }
+    protected inline fun textSeparatorProperty(position: () -> Int): SpanSeparatorDelegate {
+        val item = findSpan(position)
+        return SpanSeparatorDelegate(item) { updateSpanStyles() }
     }
     //endregion
 
     private fun SpannableStringBuilder.applySpanStyle(position: Int, spanItem: SpanItem) {
         val span = spanItem.buildSpan(position)
         val text = spanItem.text.plus("${spanItem.separator} ")
+
         val start = if (orientation == Orientation.VERTICAL) {
             appendln(text)
             length - text.length - 1
@@ -249,6 +131,7 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
             length - text.length
         }
         val end = length
+
         setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
     }
 

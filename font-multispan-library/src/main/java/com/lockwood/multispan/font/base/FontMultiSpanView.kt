@@ -22,10 +22,10 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.util.Log
 import com.lockwood.multispan.MultiSpanView
+import com.lockwood.multispan.extensions.getStringOrEmpty
+import com.lockwood.multispan.font.delegate.SpanFontDelegate
 import com.lockwood.multispan.font.item.FontSpanItem
 import com.lockwood.multispan.font.spannable.FontSpannable
-import com.lockwood.multispan.property.SpanProperty
-import kotlin.reflect.KProperty
 
 abstract class FontMultiSpanView @JvmOverloads constructor(
     context: Context,
@@ -33,11 +33,15 @@ abstract class FontMultiSpanView @JvmOverloads constructor(
     defStyleAttr: Int = android.R.attr.textViewStyle
 ) : MultiSpanView<FontSpanItem>(context, attrs, defStyleAttr), FontSpannable {
 
-    override fun initSpan() = FontSpanItem(
-        textSize = textSize.toInt(),
-        textColor = currentTextColor,
-        font = typeface
-    )
+    override fun initSpan(): FontSpanItem {
+        return FontSpanItem(
+            text = "",
+            textSize = textSize.toInt(),
+            textColor = currentTextColor,
+            font = typeface,
+            separator = ""
+        )
+    }
 
     protected open fun fetchFontFromAssets(path: String): Typeface = try {
         Typeface.createFromAsset(context.assets, path)
@@ -60,23 +64,9 @@ abstract class FontMultiSpanView @JvmOverloads constructor(
     // endregion
 
     //region Font Span property functions
-    protected inline fun fontProperty(position: () -> Int) =
-        SpanFontDelegate(position())
-    // endregion
-
-    //region Font span property delegates
-    protected inner class SpanFontDelegate(
-        position: Int
-    ) : SpanProperty<Typeface>(position) {
-
-        override fun getValue(thisRef: Any, property: KProperty<*>): Typeface {
-            return (spanItems[position] as FontSpanItem).font
-        }
-
-        override fun setValue(thisRef: Any, property: KProperty<*>, value: Typeface) {
-            (spanItems[position] as FontSpanItem).font = value
-            updateSpanStyles()
-        }
+    protected inline fun fontProperty(position: () -> Int): SpanFontDelegate {
+        val item = findSpan(position)
+        return SpanFontDelegate(item) { updateSpanStyles() }
     }
     // endregion
 

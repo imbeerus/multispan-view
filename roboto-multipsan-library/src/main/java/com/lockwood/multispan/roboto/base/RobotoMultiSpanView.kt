@@ -20,11 +20,11 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
 import com.lockwood.multispan.MultiSpanView
-import com.lockwood.multispan.property.SpanProperty
 import com.lockwood.multispan.roboto.R
+import com.lockwood.multispan.roboto.delegate.SpanFontDelegate
+import com.lockwood.multispan.roboto.delegate.SpanStyleDelegate
 import com.lockwood.multispan.roboto.item.RobotoSpanItem
 import com.lockwood.multispan.roboto.spannable.RobotoSpannable
-import kotlin.reflect.KProperty
 
 abstract class RobotoMultiSpanView @JvmOverloads constructor(
     context: Context,
@@ -37,13 +37,18 @@ abstract class RobotoMultiSpanView @JvmOverloads constructor(
         private const val REGULAR_ROBOTO_FONT = 0
     }
 
+    //region Fields
     private val robotoFontFamilies = resources.getStringArray(R.array.roboto_font_families)
-    private val robotoStyles = resources.getIntArray(R.array.roboto_styles)
 
-    override fun initSpan() = RobotoSpanItem(
-        textSize = textSize.toInt(),
-        textColor = currentTextColor
-    )
+    private val robotoStyles = resources.getIntArray(R.array.roboto_styles)
+    // endregion
+
+    override fun initSpan(): RobotoSpanItem {
+        return RobotoSpanItem(
+            textSize = textSize.toInt(),
+            textColor = currentTextColor
+        )
+    }
 
     //region TypedArray extensions
     protected fun TypedArray.getRobotoFontFamily(index: Int): String {
@@ -66,40 +71,14 @@ abstract class RobotoMultiSpanView @JvmOverloads constructor(
     // endregion
 
     //region Roboto Span property functions
-    protected inline fun fontProperty(position: () -> Int) =
-        SpanFontDelegate(position())
-
-    protected inline fun styleProperty(position: () -> Int) =
-        SpanStyleDelegate(position())
-    // endregion
-
-    //region Roboto span property delegates
-    protected inner class SpanFontDelegate(
-        position: Int
-    ) : SpanProperty<String>(position) {
-
-        override fun getValue(thisRef: Any, property: KProperty<*>): String {
-            return (spanItems[position] as RobotoSpanItem).fontFamily
-        }
-
-        override fun setValue(thisRef: Any, property: KProperty<*>, value: String) {
-            (spanItems[position] as RobotoSpanItem).fontFamily = value
-            updateSpanStyles()
-        }
+    protected inline fun fontProperty(position: () -> Int): SpanFontDelegate {
+        val item = findSpan(position)
+        return SpanFontDelegate(item) { updateSpanStyles() }
     }
 
-    protected inner class SpanStyleDelegate(
-        position: Int
-    ) : SpanProperty<Int>(position) {
-
-        override fun getValue(thisRef: Any, property: KProperty<*>): Int {
-            return (spanItems[position] as RobotoSpanItem).style
-        }
-
-        override fun setValue(thisRef: Any, property: KProperty<*>, value: Int) {
-            (spanItems[position] as RobotoSpanItem).style = value
-            updateSpanStyles()
-        }
+    protected inline fun styleProperty(position: () -> Int): SpanStyleDelegate {
+        val item = findSpan(position)
+        return SpanStyleDelegate(item) { updateSpanStyles() }
     }
     // endregion
 

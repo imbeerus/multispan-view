@@ -18,6 +18,8 @@ package com.lockwood.multispan.font
 
 import android.content.Context
 import android.util.AttributeSet
+import com.lockwood.multispan.extensions.fetchAttrs
+import com.lockwood.multispan.extensions.fetchTwoSpanAttrs
 import com.lockwood.multispan.font.spannable.FontTwoSpan
 import com.lockwood.multispan.spannable.TwoSpan.Companion.ITEM_SECOND
 import com.lockwood.multispan.spannable.TwoSpan.Companion.TWO_ITEMS_COUNT
@@ -38,7 +40,7 @@ open class FontTwoSpanView @JvmOverloads constructor(
     override var secondFont by fontProperty { ITEM_SECOND }
 
     init {
-        fetchTwoSpanAttrs(context, attrs)
+        fetchTwoSpanAttrs(context, attrs, defaultTextSize, defaultTextColor)
 
         fetchAttrs(R.styleable.FontTwoSpanView, context, attrs) {
             secondFont = getFontOrDefault(R.styleable.FontTwoSpanView_secondFont)
