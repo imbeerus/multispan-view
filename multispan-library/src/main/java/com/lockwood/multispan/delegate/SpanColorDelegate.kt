@@ -4,7 +4,7 @@ import com.lockwood.multispan.delegate.base.SpanDelegate
 import com.lockwood.multispan.item.SpanItem
 import kotlin.reflect.KProperty
 
-internal class SpanColorDelegate(
+class SpanColorDelegate(
     spanItem: SpanItem,
     override val onSet: () -> Unit
 ) : SpanDelegate<Int>(spanItem) {

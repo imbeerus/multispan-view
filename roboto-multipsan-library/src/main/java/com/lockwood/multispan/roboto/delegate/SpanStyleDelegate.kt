@@ -5,7 +5,7 @@ import com.lockwood.multispan.item.SpanItem
 import com.lockwood.multispan.roboto.item.RobotoSpanItem
 import kotlin.reflect.KProperty
 
-internal class SpanStyleDelegate(
+class SpanStyleDelegate(
     spanItem: SpanItem,
     override val onSet: () -> Unit
 ) : SpanDelegate<Int>(spanItem) {

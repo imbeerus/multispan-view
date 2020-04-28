@@ -6,7 +6,7 @@ import com.lockwood.multispan.font.item.FontSpanItem
 import com.lockwood.multispan.item.SpanItem
 import kotlin.reflect.KProperty
 
-internal class SpanFontDelegate(
+class SpanFontDelegate(
     spanItem: SpanItem,
     override val onSet: () -> Unit
 ) : SpanDelegate<Typeface>(spanItem) {

@@ -5,7 +5,7 @@ import com.lockwood.multispan.item.SpanItem
 import com.lockwood.multispan.roboto.item.RobotoSpanItem
 import kotlin.reflect.KProperty
 
-internal class SpanFontDelegate(
+class SpanFontDelegate(
     spanItem: SpanItem,
     override val onSet: () -> Unit
 ) : SpanDelegate<String>(spanItem) {
