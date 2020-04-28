@@ -4,7 +4,7 @@ import com.lockwood.multispan.delegate.base.SpanDelegate
 import com.lockwood.multispan.item.SpanItem
 import kotlin.reflect.KProperty
 
-class SpanSizeDelegate(
+internal class SpanSizeDelegate(
     spanItem: SpanItem,
     override val onSet: () -> Unit
 ) : SpanDelegate<Int>(spanItem) {

@@ -4,7 +4,7 @@ import com.lockwood.multispan.delegate.base.SpanDelegate
 import com.lockwood.multispan.item.SpanItem
 import kotlin.reflect.KProperty
 
-class SpanTextDelegate(
+internal class SpanTextDelegate(
     spanItem: SpanItem,
     override val onSet: () -> Unit
 ) : SpanDelegate<String>(spanItem) {
