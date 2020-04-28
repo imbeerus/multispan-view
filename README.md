@@ -12,7 +12,7 @@ Allow to apply custom Spans and [change gravity of Drawable][2]
 ### Features
 * Optimized way to use text styling and drawables with TextView
 * RobotoSpanView with prepared Roboto font styles or FontSpanView if you need custom fonts 
-* Change style of spans in your way (see [usage][7])
+* Change style of spans in your way (see [usage][3])
 * Right-to-left Support
 
 ## Download
@@ -46,13 +46,13 @@ The simplest way is to use `RobotoSpanView` or `FontSpanView` like a normal `Tex
             app:secondText="Mr. Fluffypants" />
 ```
 #### Styling
-You can make your own spans like a [AlignTopSuperscriptSpan][12] and apply them in your [custom views][13]
+You can make your own spans like a [AlignTopSuperscriptSpan][8] and apply them in your [custom views][9]
 
 #### Image loading
-There are several libraries that follow best practices for loading images. I recommend [Glide][9], but you can use others: [Picasso][10], [Coil][11].
+There are several libraries that follow best practices for loading images. I recommend [Glide][5], but you can use others: [Picasso][6], [Coil][7].
 
 #### Data binding
-If you use data binding you can use [this][8] adapter
+If you use data binding you can use [this][4] adapter
 
 For more information see `app` directory and documentation
 
@@ -75,14 +75,10 @@ limitations under the License.
 ```
 [1]: https://github.com/lndmflngs/multispan-view/releases/latest
 [2]: https://github.com/lndmflngs/compound-text-view
-[3]: https://github.com/lndmflngs/multispan-view/blob/master/multispan-library/src/main/java/com/lockwood/multispan/spannable/Spannable.kt
-[4]: https://github.com/lndmflngs/multispan-view/blob/161dc0db5c8c5a327d5ca9312e575c18a8385502/multispan-library/src/main/java/com/lockwood/multispan/MultiSpanView.kt#L97-L98
-[5]: https://developer.android.com/reference/android/widget/TextView#attr_android:lineSpacingExtra
-[6]: https://developer.android.com/reference/android/widget/TextView#attr_android:lineSpacingMultiplier
-[7]: https://github.com/lndmflngs/multispan-view#usage
-[8]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/BindingExample.kt
-[9]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L102-L107
-[10]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L110-L114
-[11]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L117-L124
-[12]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/span/AlignTopSuperscriptSpan.kt
-[13]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/view/SuperscriptTextView.kt
+[3]: https://github.com/lndmflngs/multispan-view#usage
+[4]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/BindingExample.kt
+[5]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L102-L107
+[6]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L110-L114
+[7]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L117-L124
+[8]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/span/AlignTopSuperscriptSpan.kt
+[9]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/view/SuperscriptTextView.kt
