@@ -42,9 +42,9 @@ open class RobotoSingleSpanView @JvmOverloads constructor(
     init {
         fetchSingleSpanAttrs(context, attrs)
 
-        fetchAttrs(R.styleable.RobotoTwoSpanView, context, attrs) {
-            firstFont = getRobotoFontFamily(R.styleable.RobotoTwoSpanView_firstRobotoFont)
-            firstStyle = getRobotoFontStyle(R.styleable.RobotoTwoSpanView_firstRobotoFont)
+        fetchAttrs(R.styleable.RobotoSingleSpanView, context, attrs) {
+            firstFont = getRobotoFontFamily(R.styleable.RobotoSingleSpanView_firstRobotoFont)
+            firstStyle = getRobotoFontStyle(R.styleable.RobotoSingleSpanView_firstRobotoFont)
         }
     }
 

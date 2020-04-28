@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="FontTwoSpanView">
+    <declare-styleable name="FontSingleSpanView">
         <attr name="firstFont" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="FontTwoSpanView">
         <attr name="secondFont" format="string" />
     </declare-styleable>
 

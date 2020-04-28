@@ -41,8 +41,8 @@ open class FontSingleSpanView @JvmOverloads constructor(
     init {
         fetchSingleSpanAttrs(context, attrs)
 
-        fetchAttrs(R.styleable.FontTwoSpanView, context, attrs) {
-            firstFont = getFontOrDefault(R.styleable.FontTwoSpanView_firstFont)
+        fetchAttrs(R.styleable.FontSingleSpanView, context, attrs) {
+            firstFont = getFontOrDefault(R.styleable.FontSingleSpanView_firstFont)
         }
     }
 

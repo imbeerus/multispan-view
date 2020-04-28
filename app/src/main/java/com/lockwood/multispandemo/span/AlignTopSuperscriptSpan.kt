@@ -15,7 +15,7 @@ class AlignTopSuperscriptSpan : MetricAffectingSpan() {
 
     companion object {
 
-        private const val DEFAULT_SHIFT_SCALE = 1.25
+        private const val DEFAULT_SHIFT_SCALE = 1.50
     }
 
 }

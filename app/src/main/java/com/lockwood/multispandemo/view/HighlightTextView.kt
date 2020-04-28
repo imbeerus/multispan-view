@@ -18,6 +18,13 @@ class HighlightTextView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : FontTwoSpanView(context, attrs) {
 
+    companion object {
+
+        private const val TAG = "HighlightTextView"
+
+        private const val DEFAULT_IS_HIGHLIGHT = true
+    }
+
     private var isHighlight: Boolean = DEFAULT_IS_HIGHLIGHT
     private var highlightFont: Typeface = typeface
     private var highlightSpanColor: Int = currentTextColor
@@ -30,28 +37,19 @@ class HighlightTextView @JvmOverloads constructor(
         }
 
     init {
-        context.theme.obtainStyledAttributes(
-            attrs,
-            R.styleable.HighlightTextView,
-            0,
-            0
-        )
-            .apply {
-                try {
-                    highlightPattern =
-                        getStringOrEmpty(R.styleable.HighlightTextView_highlightPattern)
-                    highlightFont =
-                        getFontOrDefault(R.styleable.HighlightTextView_highlightFont)
-                    highlightSpanColor =
-                        getTextColorOrDefault(R.styleable.HighlightTextView_highlightColor)
-                    isHighlight = getBoolean(
-                        R.styleable.HighlightTextView_isHighlight,
-                        DEFAULT_IS_HIGHLIGHT
-                    )
-                } finally {
-                    recycle()
-                }
-            }
+        fetchAttrs(R.styleable.HighlightTextView, context, attrs) {
+            highlightPattern =
+                getStringOrEmpty(R.styleable.HighlightTextView_highlightPattern)
+            highlightFont =
+                getFontOrDefault(R.styleable.HighlightTextView_highlightFont)
+            highlightSpanColor =
+                getTextColorOrDefault(R.styleable.HighlightTextView_highlightColor)
+            isHighlight = getBoolean(
+                R.styleable.HighlightTextView_isHighlight,
+                DEFAULT_IS_HIGHLIGHT
+            )
+        }
+        updateSpanStyles()
     }
 
     override fun fetchFontFromAssets(path: String): Typeface {
@@ -64,14 +62,13 @@ class HighlightTextView @JvmOverloads constructor(
     }
 
     override fun setSpanOnResult(resultSpans: SpannableString): CharSequence {
-        return if (!highlightPattern.isNullOrEmpty()) {
+        return if (isHighlight && !highlightPattern.isNullOrEmpty()) {
             try {
-                Log.d(TAG, "highlightPattern: $highlightPattern")
                 val regexPattern = highlightPattern!!.toRegex()
-                val highlightMatches = regexPattern.findAll(resultSpans)
+                val highlightMatches = regexPattern.findAll(resultSpans).map { it.value }
                 highlightMatches.forEach { item ->
-                    val start = resultSpans.indexOf(item.value)
-                    val end = start + item.value.length
+                    val start = resultSpans.indexOf(item)
+                    val end = start + item.length
                     resultSpans.setSpan(
                         FontSpan(highlightFont, textSize, highlightSpanColor),
                         start,
@@ -87,13 +84,6 @@ class HighlightTextView @JvmOverloads constructor(
         } else {
             super.setSpanOnResult(resultSpans)
         }
-    }
-
-    companion object {
-
-        private const val TAG = "HighlightTextView"
-
-        private const val DEFAULT_IS_HIGHLIGHT = true
     }
 
 }
