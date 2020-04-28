@@ -46,7 +46,7 @@ The simplest way is to use `RobotoSpanView` or `FontSpanView` like a normal `Tex
             app:secondText="Mr. Fluffypants" />
 ```
 #### Styling
-You can make your own spans (AlignTopSuperscriptSpan, CustomCalligraphyTypefaceSpan) and apply them in your views
+You can make your own spans like a [AlignTopSuperscriptSpan][12] and apply them in your [custom views][13]
 
 #### Image loading
 There are several libraries that follow best practices for loading images. I recommend [Glide][9], but you can use others: [Picasso][10], [Coil][11].
@@ -84,3 +84,5 @@ limitations under the License.
 [9]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L102-L107
 [10]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L110-L114
 [11]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L117-L124
+[12]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/span/AlignTopSuperscriptSpan.kt
+[13]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/view/SuperscriptTextView.kt
