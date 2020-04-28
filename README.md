@@ -4,7 +4,7 @@
 ![Android CI](https://github.com/lndmflngs/multispan-view/workflows/Android%20CI/badge.svg?branch=master)
 [![](https://jitpack.io/v/lndmflngs/multispan-view.svg)](https://jitpack.io/#lndmflngs/multispan-view)
 
-Replace your ConstraintLayout with TextView and power of Spans 💪
+CompoundTextView with power of Spans 💪
 
 Allow to apply custom Spans and [change gravity of Drawable][2]
 
