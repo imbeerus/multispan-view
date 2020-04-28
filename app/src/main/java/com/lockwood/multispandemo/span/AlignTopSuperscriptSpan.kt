@@ -5,17 +5,20 @@ import android.text.style.MetricAffectingSpan
 
 class AlignTopSuperscriptSpan : MetricAffectingSpan() {
 
+    companion object {
+
+        private const val DEFAULT_SHIFT_SCALE = 1.25
+    }
+
+    private val TextPaint.superscriptShift: Int
+        get() = (ascent() / DEFAULT_SHIFT_SCALE).toInt()
+
     override fun updateDrawState(tp: TextPaint) {
-        tp.baselineShift += (tp.ascent() / DEFAULT_SHIFT_SCALE).toInt()
+        tp.baselineShift += tp.superscriptShift
     }
 
     override fun updateMeasureState(tp: TextPaint) {
-        tp.baselineShift += (tp.ascent() / DEFAULT_SHIFT_SCALE).toInt()
-    }
-
-    companion object {
-
-        private const val DEFAULT_SHIFT_SCALE = 1.50
+        tp.baselineShift += tp.superscriptShift
     }
 
 }
