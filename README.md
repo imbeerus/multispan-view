@@ -14,7 +14,6 @@ Allow to apply custom Spans and [change gravity of Drawable][2]
 * Optimized way to use text styling and drawables with TextView
 * RobotoSpanView with prepared Roboto font styles or FontSpanView if you need custom fonts 
 * Change style of spans in your way (see [usage][3])
-* Right-to-left Support
 
 ## Download
 Download the [latest release][1] or grab via Gradle:
