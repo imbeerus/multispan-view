@@ -8,13 +8,12 @@ CompoundTextView with power of Spans 💪
 
 <img src="https://github.com/lndmflngs/multispan-view/blob/master/art/1.png?raw=true" width="45%" />
 
-Allow to apply custom Spans and [change gravity of Drawable][2]
+Allow to apply custom [Spans][10] and [change gravity of Drawable][2]
 
 ### Features
 * Optimized way to use text styling and drawables with TextView
 * RobotoSpanView with prepared Roboto font styles or FontSpanView if you need custom fonts 
 * Change style of spans in your way (see [usage][3])
-* Right-to-left Support
 
 ## Download
 Download the [latest release][1] or grab via Gradle:
@@ -80,3 +79,4 @@ limitations under the License.
 [7]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L117-L124
 [8]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/span/AlignTopSuperscriptSpan.kt
 [9]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/view/SuperscriptTextView.kt
+[10]: https://developer.android.com/guide/topics/text/spans
