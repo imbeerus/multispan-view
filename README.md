@@ -6,6 +6,8 @@
 
 CompoundTextView with power of Spans 💪
 
+<img src="https://github.com/lndmflngs/multispan-view/blob/master/art/1.png?raw=true" width="45%" />
+
 Allow to apply custom Spans and [change gravity of Drawable][2]
 
 ### Features
