@@ -60,12 +60,12 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
             updateSpanStyles()
         }
 
-    protected val spanItems = Array(MAX_SPANS_COUNT) { initSpan() }
+    private val spanItems = Array(MAX_SPANS_COUNT) { initSpan() }
 
-    protected val defaultTextSize
+    protected open val defaultTextSize
         get() = textSize.toInt()
 
-    protected val defaultTextColor
+    protected open val defaultTextColor
         get() = currentTextColor
 
     private val spannableBuilder = SpannableStringBuilder()
