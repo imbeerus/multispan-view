@@ -49,9 +49,6 @@ The simplest way is to use `RobotoSpanView` or `FontSpanView` like a normal `Tex
 #### Styling
 You can make your own spans like a [AlignTopSuperscriptSpan][8] and apply them in your [custom views][9]
 
-#### Image loading
-There are several libraries that follow best practices for loading images. I recommend [Glide][5], but you can use others: [Picasso][6], [Coil][7].
-
 #### Data binding
 If you use data binding you can use [this][4] adapter
 
