@@ -44,6 +44,13 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
         const val DEF_ORIENTATION = Orientation.HORIZONTAL
     }
 
+    @PublishedApi
+    internal fun `access$updateSpanStyles`() = updateSpanStyles()
+
+    @PublishedApi
+    internal val `access$spanItems`: Array<SpanItem>
+        get() = spanItems
+
     //region Fields
     abstract val spansCount: Int
 
@@ -93,29 +100,29 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
         return resultSpans
     }
 
-    protected inline fun findSpan(position: () -> Int): SpanItem {
-        return spanItems[position()]
+     inline fun findSpan(position: () -> Int): SpanItem {
+        return `access$spanItems`[position()]
     }
 
     //region Span property functions
-    protected inline fun textProperty(position: () -> Int): SpanTextDelegate {
+    inline fun textProperty(position: () -> Int): SpanTextDelegate {
         val item = findSpan(position)
-        return SpanTextDelegate(item) { updateSpanStyles() }
+        return SpanTextDelegate(item) { `access$updateSpanStyles`() }
     }
 
-    protected inline fun textSizeProperty(position: () -> Int): SpanSizeDelegate {
+    inline fun textSizeProperty(position: () -> Int): SpanSizeDelegate {
         val item = findSpan(position)
-        return SpanSizeDelegate(item) { updateSpanStyles() }
+        return SpanSizeDelegate(item) { `access$updateSpanStyles`() }
     }
 
-    protected inline fun textColorProperty(position: () -> Int): SpanColorDelegate {
+    inline fun textColorProperty(position: () -> Int): SpanColorDelegate {
         val item = findSpan(position)
-        return SpanColorDelegate(item) { updateSpanStyles() }
+        return SpanColorDelegate(item) { `access$updateSpanStyles`() }
     }
 
-    protected inline fun textSeparatorProperty(position: () -> Int): SpanSeparatorDelegate {
+    inline fun textSeparatorProperty(position: () -> Int): SpanSeparatorDelegate {
         val item = findSpan(position)
-        return SpanSeparatorDelegate(item) { updateSpanStyles() }
+        return SpanSeparatorDelegate(item) { `access$updateSpanStyles`() }
     }
     //endregion
 
