@@ -7,7 +7,7 @@
     android:padding="16dp"
     tools:ignore="HardcodedText">
 
-    <!--  TODO: add items like youtube or others  -->
+    <!--  TODO: add items like youtube and others  -->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,7 +73,8 @@
             app:highlightColor="@color/primary"
             app:highlightPattern="[2-9]\\d{2}-\\d{3}-\\d{4}"
             app:orientation="vertical"
-            app:secondText="You need to be careful with special characters when you set highlight pattern, eg phone number: 800-555-5555" />
+            app:secondText="You need to be careful with special characters when you set highlight pattern, eg phone number: 800-555-5555"
+            app:useUnderline="true" />
 
         <View
             android:layout_width="wrap_content"

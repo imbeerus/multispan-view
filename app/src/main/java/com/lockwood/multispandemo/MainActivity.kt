@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
-    private val tabTitles = arrayOf("Showcase", "Constraint")
+    private val tabTitles = arrayOf("Showcase")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,12 +21,16 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private fun initViewPager() = with(pager) {
         adapter = object : FragmentStateAdapter(this@MainActivity) {
 
-            override fun getItemCount(): Int = ITEM_COUNT
+            override fun getItemCount(): Int {
+                return ITEM_COUNT
+            }
 
-            override fun createFragment(p0: Int): Fragment = if (p0 == 0) {
-                ShowcaseFragment.newInstance()
-            } else {
-                ConstraintFragment.newInstance()
+            override fun createFragment(p0: Int): Fragment {
+                return if (p0 == 0) {
+                    ShowcaseFragment.newInstance()
+                } else {
+                    ConstraintFragment.newInstance()
+                }
             }
         }
 
@@ -38,7 +42,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     companion object {
 
-        private const val ITEM_COUNT = 2
+        private const val ITEM_COUNT = 1
     }
 
 }
