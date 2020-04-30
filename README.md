@@ -28,7 +28,7 @@ allprojects {
 ```
 ```
 dependencies {
-        implementation 'com.github.lndmflngs:multispan-view:0.1.4'
+        implementation 'com.github.lndmflngs:multispan-view:0.1.5'
 }
 ```
 ## Usage
