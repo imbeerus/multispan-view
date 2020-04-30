@@ -1,9 +1,6 @@
-apply from: rootProject.file('buildsystem/android-library.gradle')
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.lndmflngs'
-
-apply from: rootProject.file('buildsystem/compound-library.gradle')
 
 repositories {
     mavenCentral()
