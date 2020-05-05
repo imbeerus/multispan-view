@@ -22,6 +22,12 @@ dependencies {
         implementation 'com.github.lndmflngs:multispan-view:1.0.1'
 }
 ```
+
+## See also 
+* [**compound-text-view**](https://github.com/lndmflngs/compound-text-view) - Change gravity of Image Drawable in TextView 🌌
+* [**roboto-span-view**](https://github.com/lndmflngs/roboto-span-view) - Multi span TextView with Roboto fonts
+* [**font-span-view**](https://github.com/lndmflngs/fibt-span-view) - Multi span TextView with custom fonts
+
 ## Issue Tracking
 Found a bug? Have an idea for an improvement? Feel free to [add an issue](../../issues)
 
