@@ -10,10 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/font-multispan-library" />
             <option value="$PROJECT_DIR$/multispan-library" />
-            <option value="$PROJECT_DIR$/roboto-multipsan-library" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

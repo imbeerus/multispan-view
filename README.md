@@ -4,16 +4,9 @@
 ![Android CI](https://github.com/lndmflngs/multispan-view/workflows/Android%20CI/badge.svg?branch=master)
 [![](https://jitpack.io/v/lndmflngs/multispan-view.svg)](https://jitpack.io/#lndmflngs/multispan-view)
 
-CompoundTextView with power of Spans 💪
+TextView with power of Spans 💪
 
-<img src="https://github.com/lndmflngs/multispan-view/blob/master/art/1.png?raw=true" width="45%" />
-
-Allow to apply custom [Spans][10] and [change gravity of Drawable][2]
-
-### Features
-* Optimized way to use text styling and drawables with TextView
-* RobotoSpanView with prepared Roboto font styles or FontSpanView if you need custom fonts 
-* Change style of spans in your way (see [usage][3])
+Allow to apply custom [Spans][2]
 
 ## Download
 Download the [latest release][1] or grab via Gradle:
@@ -28,31 +21,9 @@ allprojects {
 ```
 ```
 dependencies {
-        implementation 'com.github.lndmflngs:multispan-view:0.1.5'
+        implementation 'com.github.lndmflngs:multispan-view:1.0.0'
 }
 ```
-## Usage
-The simplest way is to use `RobotoSpanView` or `FontSpanView` like a normal `TextView`
-
-```xml
-        <com.lockwood.multispan.roboto.RobotoTwoSpanView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:firstRobotoFont="medium"
-            app:firstText="Username"
-            app:firstSeparator=":"
-            app:orientation="vertical"
-            app:secondRobotoFont="regular"
-            app:secondText="Mr. Fluffypants" />
-```
-#### Styling
-You can make your own spans like a [AlignTopSuperscriptSpan][8] and apply them in your [custom views][9]
-
-#### Data binding
-If you use data binding you can use [this][4] adapter
-
-For more information see `app` directory
-
 ## Issue Tracking
 Found a bug? Have an idea for an improvement? Feel free to [add an issue](../../issues)
 
@@ -71,12 +42,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 [1]: https://github.com/lndmflngs/multispan-view/releases/latest
-[2]: https://github.com/lndmflngs/compound-text-view
-[3]: https://github.com/lndmflngs/multispan-view#usage
-[4]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/BindingExample.kt
-[5]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L102-L107
-[6]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L110-L114
-[7]: https://github.com/lndmflngs/compound-text-view/blob/master/app/src/main/java/com/lockwood/compoundemo/fragment/RecyclerFragment.kt#L117-L124
-[8]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/span/AlignTopSuperscriptSpan.kt
-[9]: https://github.com/lndmflngs/multispan-view/blob/master/app/src/main/java/com/lockwood/multispandemo/view/SuperscriptTextView.kt
-[10]: https://developer.android.com/guide/topics/text/spans
+[2]: https://developer.android.com/guide/topics/text/spans

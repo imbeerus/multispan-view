@@ -1,2 +1,2 @@
 rootProject.name = 'multispan-view'
-include ':app', ':multispan-library', ':font-multispan-library', ':roboto-multipsan-library'
+include ':multispan-library'
