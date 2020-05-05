@@ -4,9 +4,7 @@
 ![Android CI](https://github.com/lndmflngs/multispan-view/workflows/Android%20CI/badge.svg?branch=master)
 [![](https://jitpack.io/v/lndmflngs/multispan-view.svg)](https://jitpack.io/#lndmflngs/multispan-view)
 
-TextView with power of Spans 💪
-
-Allow to apply custom [Spans][2]
+TextView with power of [Spans][2] 💪
 
 ## Download
 Download the [latest release][1] or grab via Gradle:
