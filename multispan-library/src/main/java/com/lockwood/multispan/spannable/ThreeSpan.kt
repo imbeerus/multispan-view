@@ -20,15 +20,16 @@ import com.lockwood.multispan.item.SpanItem
 
 interface ThreeSpan<T : SpanItem> : TwoSpan<T> {
 
-    var thirdText: String
-    var thirdTextSize: Int
-    var thirdTextColor: Int
-    var thirdSeparator: String
-
     companion object {
+
         const val THREE_ITEMS_COUNT = 3
 
         const val ITEM_THIRD = 2
     }
+
+    var thirdText: String
+    var thirdTextSize: Int
+    var thirdTextColor: Int
+    var thirdSeparator: String
 
 }

@@ -36,6 +36,12 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
     defStyleAttr: Int = android.R.attr.textViewStyle
 ) : CompoundTextView(context, attrs, defStyleAttr), Spannable<T> {
 
+    object Orientation {
+
+        const val HORIZONTAL = 0
+        const val VERTICAL = 1
+    }
+
     companion object {
 
         private val TAG = MultiSpanView::class.java.simpleName
@@ -72,27 +78,31 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
     //endregion
 
     init {
-        fetchAttrs(R.styleable.MultiSpanView, context, attrs) {
+        fetchAttrs(context, R.styleable.MultiSpanView, attrs) {
             orientation = getInt(
                 R.styleable.MultiSpanView_orientation,
                 DEF_ORIENTATION
             )
         }
+
         updateSpanStyles()
     }
 
     protected fun updateSpanStyles() {
         spannableBuilder.clear()
+
         for (position in 0 until spansCount) {
             val item = spanItems[position]
             spannableBuilder.applySpanStyle(position, item)
         }
+
         val result = SpannableString(spannableBuilder.trimEnd())
         val spannableString = if (result.isNotEmpty()) {
             setSpanOnResult(result)
         } else {
             result
         }
+
         setText(spannableString, BufferType.SPANNABLE)
     }
 
@@ -100,7 +110,7 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
         return resultSpans
     }
 
-     inline fun findSpan(position: () -> Int): SpanItem {
+    inline fun findSpan(position: () -> Int): SpanItem {
         return `access$spanItems`[position()]
     }
 
@@ -140,11 +150,6 @@ abstract class MultiSpanView<T : SpanItem> @JvmOverloads constructor(
         val end = length
 
         setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-    }
-
-    object Orientation {
-        const val HORIZONTAL = 0
-        const val VERTICAL = 1
     }
 
 }

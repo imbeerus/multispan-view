@@ -20,15 +20,16 @@ import com.lockwood.multispan.item.SpanItem
 
 interface SingleSpan<T : SpanItem> : Spannable<T> {
 
-    var firstText: String
-    var firstTextSize: Int
-    var firstTextColor: Int
-    var firstSeparator: String
-
     companion object {
+
         const val ONE_ITEM_COUNT = 1
 
         const val ITEM_FIRST = 0
     }
+
+    var firstText: String
+    var firstTextSize: Int
+    var firstTextColor: Int
+    var firstSeparator: String
 
 }
