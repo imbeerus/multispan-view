@@ -4,7 +4,7 @@ def versions = [:]
 versions.kotlin = "1.3.72"
 versions.ktx = "1.4.0-alpha01"
 versions.appcompat = "1.3.0-alpha01"
-versions.compound = "1.2.9"
+versions.compound = "1.3.1"
 
 def android = [:]
 android.ktx = "androidx.core:core-ktx:$versions.ktx"
